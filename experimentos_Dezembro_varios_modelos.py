@@ -324,7 +324,7 @@ def chamada_api_ollama( conversa_entrada,id_modelo = 'gemma2:2b', stream = False
 """## Versao Logica Proposicional"""
 
 # Texto Padrao da primeira mensagem do usuario
-user_content_proposicional = r"""O guia a seguir detalha o formato aceito pelo NADIA para a construção de prompts para LLMs:
+user_content_proposicional = r"""O guia a seguir detalha o formato aceito pelo NADIA para a construção de provas de Dedução Natural em Lógica Proposicional e Lógica de Primeira Ordem no estilo Fitch:
 
 Premissas e Hipóteses:
 
@@ -386,7 +386,7 @@ print(assistant_response_proposicional)
 """## Versao Logica de Primeira Ordem"""
 
 # Texto Padrao da primeira mensagem do usuario
-user_content_LPO = r"""O guia a seguir detalha o formato aceito pelo NADIA para a construção de prompts para LLMs:
+user_content_LPO = r"""O guia a seguir detalha o formato aceito pelo NADIA para a construção de provas de Dedução Natural em Lógica Proposicional e Lógica de Primeira Ordem no estilo Fitch:
 
 Premissas e Hipóteses:
 
@@ -473,7 +473,7 @@ def salvar_arqivo_CSV(nome_arquivo_csv,dicionarios_questoes,labels):
 #funcao que cria conversa a ser enviada para a api
 def build_a_chat(user_content,assistant_response,questao_entrada):
   #Adicionado uma mensagem no Inicio da conversa para mostrar um exemplo de pergunta e resposta que a IA deve obedecer
-      user_question = f"""O guia a seguir detalha o formato aceito pelo NADIA para a construção de prompts para LLMs:
+      user_question = f"""O guia a seguir detalha o formato aceito pelo NADIA para a construção de provas de Dedução Natural em Lógica Proposicional e Lógica de Primeira Ordem no estilo Fitch:
 
 Premissas e Hipóteses:
 
@@ -567,8 +567,8 @@ def run_questions(num_questions,user_content,assistant_response,API_KEY,questoes
         #SALVANDO na string  do arquivo CSV
         dicionarios_questoes.append({'numero':f'q{x}','questao':questoes_entrada[f'Q{x}'],'resposta':reposta_,'resposta_correta':'','avaliacao':''})
     labels = ['numero','questao','resposta','resposta_correta','avaliacao']
-    salvar_arqivo_CSV('Relatorio-'+complemento_arquivo+'-'+modelo+'.csv',dicionarios_questoes,labels)
-    salvar_arqivo_Latex('Relatorio-'+complemento_arquivo+'-'+modelo+'.txt',arquivo_LATEX)
+    salvar_arqivo_CSV('Relatorio-'+complemento_arquivo+'-'+'.csv',dicionarios_questoes,labels)
+    salvar_arqivo_Latex('Relatorio-'+complemento_arquivo+'-'+'.txt',arquivo_LATEX)
 
 #num_questions,user_content,assistant_response,API_KEY,questoes_entrada,modelo,complemento_arquivo,debug_mode=False
 ######################
@@ -600,7 +600,8 @@ elif args.tipo_de_questoes == "predicados":
 
     user_content_terminal=user_content_LPO
     assistant_response_terminal=assistant_response_LPO
-    questoes_entrada_terminal=questoes_questoes_fo
+    questoes_entrada_terminal=questoes_fo
+    print("ARGS",args.tipo_de_questoes)
 else:
     print("ARGS",args.tipo_de_questoes)
 
