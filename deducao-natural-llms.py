@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
-"""Experimentos - Dezembro -Adaptado para múltiplos Experimentos
+"""Experimentos Julho 2025
 # Adaptado para multiplos Experimentos:
-### Modelos
-- ChatGPT 4o;
-- Llama 3;
-- Gemma 2;
+### Modelos AceitosÇ
+- GPTs ;
+- Modelos Disponíveis no Ollama;
 ---
 ### Tipos de Questões
 - Questões de Lógica de Primeira Ordem;
@@ -13,13 +12,10 @@
 ### Formato de Questões
 - Questões Escritas em Latex;
 - Questões Escritas na Linguagem do NADIA;
-
 ---
 ### Tipo de Prompt
 - Com 1 questão de Entrada;
 - Com 1 questão de Entrada + Guia Básico de Formatação (para ajudar a deixar a resposta com o maior fidelidade na Formatação);
-- Colocar Mais de uma Questão como Exemplo?
----
 ---
 """
 
@@ -85,7 +81,7 @@ print("ARGS",args.tipo_de_questoes)
 print("ARGS",args.modelo)
 print("ARGS",args.complemento_arquivo)
 print("ARGS",args.api)
-if args.num_questions > 0 and args.num_questions <= 41:
+if args.num_questions > 0:
     print("ARGS",args.num_questions)
 
     num_questions = args.num_questions
@@ -112,96 +108,9 @@ else:
 
     print("Tipo de API nao informado de forma correta")
 
-
 ###
-
-
-# questoes_fo = dict()
-# questoes_fo['Q1'] = r'$\vdash\forall x  P(x)\rightarrow \lnot \exists x \lnot  P(x)$'
-
-# questoes_fo['Q2'] = r'$\vdash\lnot \exists x \lnot  P(x)\rightarrow \forall x  P(x)$'
-
-# questoes_fo['Q3'] = r'$\vdash\exists x  P (x)\rightarrow \lnot \forall x \lnot  P(x)$'
-
-# questoes_fo['Q4'] = r'$\vdash\lnot \forall x \lnot  P (x)\rightarrow \exists x  P(x)$'
-
-# questoes_fo['Q5'] = r'$ \vdash\forall x( P(x)\wedge Q(x))\rightarrow(\forall x P(x)\wedge\forall x Q(x))$'
-
-# questoes_fo['Q6'] = r'$\vdash\forall x \forall y  P (x,y)\rightarrow \forall y \forall x  P (x,y)$'
-
-
-# questoes_fo['Q7'] = r'$ \vdash\forall x( P \rightarrow  Q (x))\rightarrow( P \rightarrow\forall x Q (x))$'
-
-# questoes_fo['Q8'] = r'$\vdash\exists x( P (x)\vee Q (x))\rightarrow(\exists x P (x)\vee\exists x Q (x))$'
-
-# questoes_fo['Q9'] = r'$\vdash\lnot \forall x  P (x)\rightarrow \exists x \lnot  P (x)$'
-
-# questoes_fo['Q10'] = r'$\vdash\exists x \lnot  P (x)\rightarrow \lnot \forall x  P (x)$'
-
-# questoes_fo['Q11'] = r'$\vdash\lnot \exists x  P (x)\rightarrow \forall x \lnot  P (x)$'
-
-# questoes_fo['Q12'] = r'$\vdash\forall x \lnot  P (x)\rightarrow \lnot \exists x  P (x)$'
-
-# questoes_fo['Q13'] = r'$\vdash\exists x( P (x)\wedge Q )\rightarrow(\exists x P (x)\wedge Q )$'
-
-# questoes_fo['Q14'] = r'$\vdash(\exists x P (x)\wedge Q )\rightarrow\exists x( P (x)\wedge Q )$'
-
-# questoes_fo['Q15'] = r'$\vdash\forall x( P (x)\vee Q )\rightarrow(\forall x P (x)\vee Q )$'
-
-# questoes_fo['Q16'] = r'$\vdash(\forall x P (x)\vee Q )\rightarrow\forall x( P (x)\vee Q )$'
-
-# questoes_fo['Q17'] = r'$\vdash\exists x( P (x)\rightarrow Q )\rightarrow(\forall x P (x)\rightarrow Q )$'
-
-# questoes_fo['Q18'] = r'$ \vdash(\forall x P (x)\rightarrow Q )\rightarrow\exists x( P (x)\rightarrow Q ) $'
-
-# questoes_fo['Q19'] = r'$\vdash\exists x( P \rightarrow Q (x))\rightarrow( P \rightarrow\exists x Q (x)) $'
-
-# questoes_fo['Q20'] = r'$\vdash( P \rightarrow\exists x Q (x))\rightarrow\exists x( P \rightarrow Q (x))$'
-
-# questoes_fo['Q21'] = r'$\vdash\exists x( P (x)\rightarrow\forall x P (x))$'
-
-# questoes_fo['Q22'] = r'$ \vdash \exists x\forall y (P(x)\rightarrow P(y))$'
-
-# questoes_fo['Q23'] = r'$\exists x P(x), \forall x \forall y(P(x)\rightarrow Q(y)) \vdash \forall y Q(y)$'
-
-# questoes_fo['Q24'] = r'$\forall x(Q(x) \rightarrow R(x)),\exists x(P(x) \land Q(x)) \vdash \exists x (P(x) \land R(x))$'
-
-# questoes_fo['Q25'] = r'$\forall x \exists y (P(x)|Q(y)) |- \exists y \forall x(P(x)|Q(y))$'
-
-# questoes_fo['Q26'] = r'$\forall x(H(x)\lor M(x)), \lnot\exists x H(x)\vdash \forall x M(x)$'
-
-# questoes_fo['Q27'] = r'$\forall x(H(x)\lor M(x)), \forall x \lnot H(x)\vdash \forall x M(x)$'
-
-# questoes_fo['Q28'] = r'$ \forall x \lnot(H(x)\land \lnot M(x)), \forall x H(x)\vdash \forall x M(x)$'
-
-# questoes_fo['Q29'] = r'$\forall x \lnot(H(x)\land \lnot M(x)), \lnot \forall x M(x)\vdash \lnot \forall x H(x)$'
-
-# questoes_fo['Q30'] = r'$\forall x \lnot(H(x)\land \lnot M(x)), \exists x \lnot M(x)\vdash \lnot \forall x H(x)$'
-
-# questoes_fo['Q31'] = r'$\forall x \lnot(H(x)\land \lnot M(x)), \lnot \forall x M(x)\vdash \exists x \lnot H(x)$'
-
-# questoes_fo['Q32'] = r'$\forall x \lnot(H(x)\land \lnot M(x)), \exists x \lnot M(x)\vdash \exists x \lnot H(x)$'
-
-# questoes_fo['Q33'] = r'$\forall x(\lnot H(x)\lor M(x)), \exists x H(x)\vdash \exists x M(x)$'
-
-# questoes_fo['Q34'] = r'$\forall x(H(x)\lor M(x)), \exists x \lnot H(x)\vdash \exists x M(x)$'
-
-# questoes_fo['Q35'] = r'$\forall x(H(x)\rightarrow M(x)), \forall x (M(x)\rightarrow P(x))\vdash \forall x (H(x)\rightarrow P(x))$'
-
-# questoes_fo['Q36'] = r'$\forall x (H(x)\lor M(x)), \forall x(H(x)\rightarrow P(x)), \forall x (M(x)\rightarrow P(x))\vdash \forall x P(x)$'
-
-# questoes_fo['Q37'] = r'$\forall x(H(x)\rightarrow M(x))\vdash \forall x (\lnot M(x)\rightarrow \lnot H(x))$'
-
-# questoes_fo['Q38'] = r'$\forall x (\lnot M(x)\rightarrow \lnot H(x))\vdash \forall x(H(x)\rightarrow M(x))$'
-
-# questoes_fo['Q39'] = r'$\forall x(H(x)\rightarrow M(x))\vdash \forall x (\lnot H(x)\lor M(x))$'
-
-# questoes_fo['Q40'] = r'$\forall x (\lnot H(x)\lor M(x))\vdash \forall x(H(x)\rightarrow M(x))$'
-
-# questoes_fo['Q41'] = r'$\forall x (\lnot H(x)\lor M(x))\vdash \forall x(\lnot M(x)\rightarrow \lnot H(x))$'
-
-# questoes_fo['Q42'] = r'$\forall x(\lnot M(x)\rightarrow \lnot H(x))\vdash \forall x (\lnot H(x)\lor M(x))$'
-
+#questoes de logica de primeira ordem  em Latex
+####
 questoes_fo = dict()
 questoes_fo['Q1'] = r'$\forall x  P(x)  \vdash \lnot \exists x \lnot  P(x)$'
 
@@ -243,7 +152,9 @@ questoes_fo['Q18'] = r'$(\forall x P (x)\rightarrow Q ) \vdash \exists x( P (x)\
 questoes_fo['Q19'] = r'$\exists x( P \rightarrow Q (x)) \vdash ( P \rightarrow\exists x Q (x)) $'
 
 questoes_fo['Q20'] = r'$( P \rightarrow\exists x Q (x)) \vdash \exists x( P \rightarrow Q (x))$ '
-
+###
+#questoes de logica proposicional em Latex
+####
 questoes = dict()
 questoes['Q1'] = r'$\vdash A \vee( A \wedge  B )\rightarrow  A $'
 questoes['Q2'] = r'$\vdash A \wedge( A \vee  B )\rightarrow  A $'
@@ -287,15 +198,75 @@ questoes['Q39'] = r'$\lnot(\lnot  A \vee\lnot  B )\vdash  A \wedge  B $'
 questoes['Q40'] = r'$ A \rightarrow  B \vdash\lnot  A \vee  B $'
 questoes['Q41'] = r'$\lnot  A \vee  B \vdash  A \rightarrow  B $'
 
+#questoes de logica e de primeira ordem escritas no formato aceito
+#pela ferramenta NADIA
+questoes_gerais = dict()
+questoes_gerais["Q1"] = "Ax P(x) |- ~Ex ~P(x)"
+questoes_gerais["Q2"] = "~Ex ~P(x) |- Ax P(x)"
+questoes_gerais["Q3"] = "Ex P(x) |- ~Ax ~P(x)"
+questoes_gerais["Q4"] = "~Ax ~P(x) |- Ex P(x)"
+questoes_gerais["Q5"] = "Ax (P(x)&Q(x)) |- Ax P(x)&Ax Q(x)"
+questoes_gerais["Q6"] = "Ax Ay P(x,y) |- Ay Ax P(x,y)"
+questoes_gerais["Q7"] = "Ax (P->Q(x)) |- P->Ax Q(x)"
+questoes_gerais["Q8"] = "Ex (P(x)|Q(x)) |- Ex P(x)|Ex Q(x)"
+questoes_gerais["Q9"] = "~Ax P(x) |- Ex ~P(x)"
+questoes_gerais["Q10"] = "Ex ~P(x) |- ~Ax P(x)"
+questoes_gerais["Q11"] = "~Ex P(x) |- Ax ~P(x)"
+questoes_gerais["Q12"] = "Ax ~P(x) |- ~Ex P(x)"
+questoes_gerais["Q13"] = "Ex (P(x)&Q) |- Ex P(x)&Q"
+questoes_gerais["Q14"] = "Ex P(x)&Q |- Ex (P(x)&Q)"
+questoes_gerais["Q15"] = "Ax (P(x)|Q) |- Ax P(x)|Q"
+questoes_gerais["Q16"] = "Ax P(x)|Q |- Ax (P(x)|Q)"
+questoes_gerais["Q17"] = "Ex (P(x)->Q) |- Ax P(x)->Q"
+questoes_gerais["Q18"] = "Ax P(x)->Q |- Ex (P(x)->Q)"
+questoes_gerais["Q19"] = "Ex (P->Q(x)) |- P->Ex Q(x)"
+questoes_gerais["Q20"] = "P->Ex Q(x) |- Ex (P->Q(x))"
+questoes_gerais["Q21"] = "|- (A|(A&B))->A"
+questoes_gerais["Q22"] = "|- (A&(A|B))->A"
+questoes_gerais["Q23"] = "|- (A->(B->C))->(B->(A->C))"
+questoes_gerais["Q24"] = "|- (A->(A->B))->(A->B)"
+questoes_gerais["Q25"] = "|- (~A->B)->((~A->~B)->A)"
+questoes_gerais["Q26"] = "|- A|~A"
+questoes_gerais["Q27"] = "|- (A->B)|(B->A)"
+questoes_gerais["Q28"] = "|- A->A"
+questoes_gerais["Q29"] = "|- (A->B)->((C->A)->(C->A))"
+questoes_gerais["Q30"] = "(A&B)->C |- B->(A->C)"
+questoes_gerais["Q31"] = "B->(A->C) |- (A&B)->C"
+questoes_gerais["Q32"] = "|- (A->(B->C))->((A->B)->(A->C))"
+questoes_gerais["Q33"] = "|- A->(B->A)"
+questoes_gerais["Q34"] = "|- ((A->B)->A)->A"
+questoes_gerais["Q35"] = "A->C, B->C, A|B |- C"
+questoes_gerais["Q36"] = "A |- ~~A"
+questoes_gerais["Q37"] = "~~A |- A"
+questoes_gerais["Q38"] = "A->B, ~B |- ~A"
+questoes_gerais["Q39"] = "~B->~A |- A->B"
+questoes_gerais["Q40"] = "A->B |- ~B->~A"
+questoes_gerais["Q41"] = "~(A|B) |- ~A&~B"
+questoes_gerais["Q42"] = "~A&~B |- ~(A|B)"
+questoes_gerais["Q43"] = "~(A&B) |- ~A|~B"
+questoes_gerais["Q44"] = "~A|~B |- ~(A&B)"
+questoes_gerais["Q45"] = "A|(B&C) |- (A|B)&(A|C)"
+questoes_gerais["Q46"] = "(A|B)&(A|C) |- A|(B&C)"
+questoes_gerais["Q47"] = "A&(B|C) |- (A&B)|(A&C)"
+questoes_gerais["Q48"] = "(A&B)|(A&C) |- A&(B|C)"
+questoes_gerais["Q49"] = "A|B, ~B |- A"
+questoes_gerais["Q50"] = "A|B |- ~A->B"
+questoes_gerais["Q51"] = "~A->B |- A|B"
+questoes_gerais["Q52"] = "A&B |- ~(A->~B)"
+questoes_gerais["Q53"] = "~(A->~B) |- A&B"
+questoes_gerais["Q54"] = "A|B |- ~(~A&~B)"
+questoes_gerais["Q55"] = "~(~A&~B) |- A|B"
+questoes_gerais["Q56"] = "A->B |- ~(A&~B)"
+questoes_gerais["Q57"] = "~(A&~B) |- A->B"
+questoes_gerais["Q58"] = "A&B |- ~(~A|~B)"
+questoes_gerais["Q59"] = "~(~A|~B) |- A&B"
+questoes_gerais["Q60"] = "A->B |- ~A|B"
+questoes_gerais["Q61"] = "~A|B |- A->B"
 # A funcao recebe a chave da api e a conversa de entrada
 # retorna a resposda da API
 def chamada_api_chatGPT(API_KEY,conversa_entrada,id_modelo):
     headers = {"Authorization": f"Bearer {API_KEY}", "Content-Type":"application/json"}
     link = "https://api.openai.com/v1/chat/completions"
-    #id_modelo = "gpt-3.5-turbo"
-    #id_modelo = "gpt-3.5-turbo-0613"
-    #id_modelo ="gpt-4-0125-preview"
-    #id_modelo = modelo_3_5_atual
     body_mensagem = {
         "model": id_modelo,
         #"temperature" : 0.2,
@@ -313,55 +284,17 @@ def chamada_api_ollama( conversa_entrada,id_modelo = 'gemma2:2b', stream = False
     resposta = ollama.chat(
     model= id_modelo,
     messages= conversa_entrada,
-    stream=stream
+    stream=stream,
+    options= {
+             "num_predict": 1000
+         }
     )
-    # print("MENSAGENS")
-    # print(messages)
-    # print("MENSAGENS")
-    
     
     return resposta
 """## Versao Logica Proposicional"""
 
 # Texto Padrao da primeira mensagem do usuario
-user_content_proposicional = r"""O guia a seguir detalha o formato aceito pelo NADIA para a construção de provas de Dedução Natural em Lógica Proposicional e Lógica de Primeira Ordem no estilo Fitch:
-
-Premissas e Hipóteses:
-
-- Premissas: Utilize `pre` após a fórmula. Por exemplo: `A -> B pre`.
-- Hipóteses: Utilize `hip` após a fórmula. Por exemplo: `A hip`.
-
-Fórmulas:
-
-- Átomos: Letras maiúsculas (e.g., A, B, C).
-- Predicados: Letras maiúsculas seguidas de parênteses contendo os termos (e.g., H(x), P(a,b)).
-- Variáveis: Letras minúsculas, podendo ser seguidas por letras e números (e.g., x, y, x1, a).
-- Quantificadores:
-    - Universal: `Ax` (seguido da variável quantificada). Exemplo: `Ax (H(x) -> M(x))` representa ∀x (H(x)→ M(x)).
-    - Existencial: `Ex` (seguido da variável quantificada). Exemplo: `Ex P(x)` representa ∃x P(x).
-- Conectivos:
-    - Negação: `~`
-    - Conjunção: `&`
-    - Disjunção: `|`
-    - Implicação: `->`
-- Contradição: `@`
-- Parênteses: Use parênteses para evitar ambiguidade na ordem das operações.
-- Ordem de precedência: A ordem de precedência dos operadores é: `~`, `Ax`, `Ex`, `&`, `|`, `->`. O alinhamento é à direita. Exemplo: `~A & B -> C` representa (((¬A) ∧ B) → C).
-
-Regras de Inferência:
-
-- Cada regra é representada pelo conectivo/quantificador, seguido de `i` para introdução ou `e` para eliminação.
-- Exemplos:
-    - `&i`: Introdução da conjunção.
-    - `->e`: Eliminação da implicação.
-    - `Ai`: Introdução do quantificador universal.
-- A justificativa de cada linha deve indicar a regra utilizada e as linhas de referência. Exemplo: `->e 4, 1`
-
-Caixas:
-
-- As caixas são representadas por chaves.
-- Utilize indentação para indicar as fórmulas dentro de uma caixa.
-
+user_content_proposicional = r"""
 Questão:
 escreva a prova do teorema a seguir, usando o sistema de dedução natural no estilo fitch e de acordo com o formato aceito pelo NADIA.
 Teorema:""
@@ -386,44 +319,7 @@ print(assistant_response_proposicional)
 """## Versao Logica de Primeira Ordem"""
 
 # Texto Padrao da primeira mensagem do usuario
-user_content_LPO = r"""O guia a seguir detalha o formato aceito pelo NADIA para a construção de provas de Dedução Natural em Lógica Proposicional e Lógica de Primeira Ordem no estilo Fitch:
-
-Premissas e Hipóteses:
-
-- Premissas: Utilize `pre` após a fórmula. Por exemplo: `A -> B pre`.
-- Hipóteses: Utilize `hip` após a fórmula. Por exemplo: `A hip`.
-
-Fórmulas:
-
-- Átomos: Letras maiúsculas (e.g., A, B, C).
-- Predicados: Letras maiúsculas seguidas de parênteses contendo os termos (e.g., H(x), P(a,b)).
-- Variáveis: Letras minúsculas, podendo ser seguidas por letras e números (e.g., x, y, x1, a).
-- Quantificadores:
-    - Universal: `Ax` (seguido da variável quantificada). Exemplo: `Ax (H(x) -> M(x))` representa ∀x (H(x)→ M(x)).
-    - Existencial: `Ex` (seguido da variável quantificada). Exemplo: `Ex P(x)` representa ∃x P(x).
-- Conectivos:
-    - Negação: `~`
-    - Conjunção: `&`
-    - Disjunção: `|`
-    - Implicação: `->`
-- Contradição: `@`
-- Parênteses: Use parênteses para evitar ambiguidade na ordem das operações.
-- Ordem de precedência: A ordem de precedência dos operadores é: `~`, `Ax`, `Ex`, `&`, `|`, `->`. O alinhamento é à direita. Exemplo: `~A & B -> C` representa (((¬A) ∧ B) → C).
-
-Regras de Inferência:
-
-- Cada regra é representada pelo conectivo/quantificador, seguido de `i` para introdução ou `e` para eliminação.
-- Exemplos:
-    - `&i`: Introdução da conjunção.
-    - `->e`: Eliminação da implicação.
-    - `Ai`: Introdução do quantificador universal.
-- A justificativa de cada linha deve indicar a regra utilizada e as linhas de referência. Exemplo: `->e 4, 1`
-
-Caixas:
-
-- As caixas são representadas por chaves.
-- Utilize indentação para indicar as fórmulas dentro de uma caixa.
-
+user_content_LPO = r"""
 Questão:
 escreva a prova do teorema a seguir, usando o sistema de dedução natural no estilo fitch e de acordo com o formato aceito pelo NADIA.
 Teorema:""
@@ -459,7 +355,6 @@ def salvar_arqivo_Latex(nome_arquivo_txt,string_conteudo):
   arquivo.close()
 
 #funcao que salva os resultados como um arquivo csv
-
 def salvar_arqivo_CSV(nome_arquivo_csv,dicionarios_questoes,labels):
   try:
       with open(nome_arquivo_csv, "w") as f:
@@ -470,58 +365,33 @@ def salvar_arqivo_CSV(nome_arquivo_csv,dicionarios_questoes,labels):
   except IOError:
       print("I/O error")
 
+def open_files(arquivo):
+    with open(arquivo, 'r') as arquivo:
+        nome_string = arquivo.read()
+        #print(nome_string)
+    return nome_string
+
+
 #funcao que cria conversa a ser enviada para a api
 def build_a_chat(user_content,assistant_response,questao_entrada):
-  #Adicionado uma mensagem no Inicio da conversa para mostrar um exemplo de pergunta e resposta que a IA deve obedecer
-      user_question = f"""O guia a seguir detalha o formato aceito pelo NADIA para a construção de provas de Dedução Natural em Lógica Proposicional e Lógica de Primeira Ordem no estilo Fitch:
-
-Premissas e Hipóteses:
-
-- Premissas: Utilize `pre` após a fórmula. Por exemplo: `A -> B pre`.
-- Hipóteses: Utilize `hip` após a fórmula. Por exemplo: `A hip`.
-
-Fórmulas:
-
-- Átomos: Letras maiúsculas (e.g., A, B, C).
-- Predicados: Letras maiúsculas seguidas de parênteses contendo os termos (e.g., H(x), P(a,b)).
-- Variáveis: Letras minúsculas, podendo ser seguidas por letras e números (e.g., x, y, x1, a).
-- Quantificadores:
-    - Universal: `Ax` (seguido da variável quantificada). Exemplo: `Ax (H(x) -> M(x))` representa ∀x (H(x)→ M(x)).
-    - Existencial: `Ex` (seguido da variável quantificada). Exemplo: `Ex P(x)` representa ∃x P(x).
-- Conectivos:
-    - Negação: `~`
-    - Conjunção: `&`
-    - Disjunção: `|`
-    - Implicação: `->`
-- Contradição: `@`
-- Parênteses: Use parênteses para evitar ambiguidade na ordem das operações.
-- Ordem de precedência: A ordem de precedência dos operadores é: `~`, `Ax`, `Ex`, `&`, `|`, `->`. O alinhamento é à direita. Exemplo: `~A & B -> C` representa (((¬A) ∧ B) → C).
-
-Regras de Inferência:
-
-- Cada regra é representada pelo conectivo/quantificador, seguido de `i` para introdução ou `e` para eliminação.
-- Exemplos:
-    - `&i`: Introdução da conjunção.
-    - `->e`: Eliminação da implicação.
-    - `Ai`: Introdução do quantificador universal.
-- A justificativa de cada linha deve indicar a regra utilizada e as linhas de referência. Exemplo: `->e 4, 1`
-
-Caixas:
-
-- As caixas são representadas por chaves.
-- Utilize indentação para indicar as fórmulas dentro de uma caixa.
-
-Questão:
+    #Adicionado uma mensagem no Inicio da conversa para mostrar um exemplo de pergunta e resposta que a IA deve obedecer
+    template_tutorial = open_files("template.txt")
+    print("AQUI 01")
+    template_tutorial = template_tutorial + "\n\n"
+    user_question = f"""
+      Questão:
 escreva a prova do teorema a seguir, usando o sistema de dedução natural no estilo fitch e de acordo com o formato aceito pelo NADIA.
       Teorema:""
       ${questao_entrada}$
       ""
       """
+    print("AQUI 03")
       #Criacao da Conversa de Entrada -> Pergunta Exemplo + Resposta de Exemplo + Pergunta a ser Respondida
-      conversa_entrada = [{"role": "user", "content": user_content},
+    conversa_entrada = [{"role": "user", "content": template_tutorial + user_content},
                       {"role": "assistant", "content":assistant_response},
-                      {"role": "user", "content":user_question}]
-      return conversa_entrada
+                      {"role": "user", "content": template_tutorial + user_question}]
+    print("AQUI 04")                  
+    return conversa_entrada
 
 #rodar as questoes e gerar relatorio
 #Variaveis
@@ -601,6 +471,13 @@ elif args.tipo_de_questoes == "predicados":
     user_content_terminal=user_content_LPO
     assistant_response_terminal=assistant_response_LPO
     questoes_entrada_terminal=questoes_fo
+    print("ARGS",args.tipo_de_questoes)
+elif args.tipo_de_questoes == "gerais":
+    print("ARGS",args.tipo_de_questoes)
+
+    user_content_terminal=user_content_LPO
+    assistant_response_terminal=assistant_response_LPO
+    questoes_entrada_terminal=questoes_gerais
     print("ARGS",args.tipo_de_questoes)
 else:
     print("ARGS",args.tipo_de_questoes)
