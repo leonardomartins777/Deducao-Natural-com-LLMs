@@ -1,0 +1,3624 @@
+Teorema,Prova
+Ax (P(x)|P(x)) |- Ax P(x),"
+Prova:""""
+
+1. Ax(P(x) | P(x))        pre
+2. { a
+3.   P(a) | P(a)        Ae 1
+4. { P(a)                hip
+5.   P(a)                copie 4
+}
+6. { P(a)                hip
+7.   P(a)                copie 6
+}
+8.   P(a)                |e 3,4-5,6-7
+}
+9.   Ax P(x)                Ai 2-8
+
+""""
+"
+"P(a), Q(a) |- Ex (P(x)&Q(x))","
+Prova:""""
+
+1. P(a)                        pre
+2. Q(a)                        pre
+3. P(a) & Q(a)                &i 1,2
+4. Ex(P(x)&Q(x))        Ei 3
+
+""""
+"
+"Ax (P(x)->Q(x)), P(a) |- Q(a)","
+Prova:""""
+
+1. Ax(P(x) -> Q(x))		pre
+2. P(a)				pre
+3. P(a) -> Q(a)			Ae 1
+4. Q(a)				->e 3,2
+
+""""
+"
+|- Ex (T(x)&K(x))->(Ex T(x)|Ex K(x)),"
+Prova:""""
+
+1.  { Ex(T(x) & K(x))                                 hip
+2.         { a         T(a) & K(a)                                                hip
+3.                 T(a)                                                                        &e 2
+4.                 Ex T(x)                                                          Ei 3
+5.       Ex T(x) | Ex K(x)                            |i 4
+                }
+6.         Ex T(x) | Ex K(x)                                        Ee 1, 2-5
+        }
+7.  Ex (T(x) & K(x)) -> (Ex T(x) | Ex K(x))          ->i 1-6
+
+""""
+"
+|- Ax P(x)->(Ax ~Q(x)->Ax (P(x)&~Q(x))),"
+Prova:""""
+
+1. {	Ax P(x)							  hip
+2.	{	Ax ~Q(x)						  hip
+3.		{	a
+4.			P(a) 					 	  Ae 1   
+5.			~Q(a)							  Ae 2 
+6.			P(a) & ~Q(a)				          &i 4,5
+	}						  
+7.		Ax (P(x) & ~Q(x))				          Ai 3-6
+	}
+8.	Ax ~Q(x) -> Ax (P(x) & ~Q(x))            ->i 2-7
+	}
+9. Ax P(x) -> (Ax ~Q(x) -> Ax (P(x) & ~Q(x)))  ->i 1-8
+
+""""
+"
+"Ex P(x), Ax (P(x)->Q(x)) |- Ex Q(x)","
+Prova:""""
+
+1. ExP(x)                       pre
+2. Ax(P(x) -> Q(x))             pre
+3. { a P(a)                     hip
+4.      P(a) -> Q(a)            Ae 2
+5.      Q(a)                    ->e 3,4
+6.      Ex Q(x)                 Ei 5
+	}
+7. Ex Q(x)                      Ee 1,3-6
+
+""""
+"
+|- Ax (P(x)->Q(x))->(Ax P(x)->Ax Q(x)),"
+Prova:""""
+
+1. {  Ax (P(x) -> Q(x)) 						hip
+2. {  Ax P(x) 								hip
+3.   {  a
+4.      P(a)									Ae 2
+5.      P(a) -> Q(a) 						Ae 1
+6.      Q(a)									->e 4,5
+	}
+7.   Ax Q(x)								Ai 3-6
+	}
+8.  Ax P(x) -> Ax Q(x) 					->i 2-7
+	}
+9.  Ax (P(x) -> Q(x)) -> (Ax P(x) -> Ax Q(x)) ->i 1-8 
+
+""""
+"
+|- ~Ax ~P(x)->Ex P(x),"
+Prova:""""
+
+1. { 	~Ax ~P(x)			  hip
+2.	{	~Ex P(x)		    hip
+3.		{	a
+4.			{	P(a)	      hip
+5.				Ex P(x)	    Ei 4
+6.				@	                ~e 2,5
+			}
+7.			~P(a)		            ~i 4-6
+		}
+8.		Ax ~P(x)		          Ai 3-7
+9.		@			                ~e 1,8
+	}
+10.	Ex P(x)				          raa 2-9
+	}
+11.~Ax ~P(x) -> Ex P(x)  		->i 1-10
+
+""""
+"
+|- Ex (P(x)->Q)->(Ax P(x)->Q),"
+Prova:""""
+
+1.  {	Ex(P(x)->Q)	                    hip
+2.	{	Ax P(x)							hip
+3.		{	a	P(a) -> Q					hip
+4.			P(a)						     Ae 2
+5.			Q							     ->e 3,4
+		}
+6.		Q								    Ee 1,3-5
+	}
+7.	Ax P(x) -> Q					     ->i 2-6
+	}
+8. Ex(P(x)->Q) -> (Ax P(x) -> Q)	     ->i 1-7
+
+""""
+"
+"Ax ~(P(x)&~Q(x)), Ax ~Q(x) |- Ax ~P(x)","
+Prova:""""
+
+1. Ax ~(P(x) & ~Q(x))              pre
+2. Ax ~Q(x)                         pre
+3. { a
+4.       ~(P(a) & ~Q(a))            Ae 1
+5.       {  P(a)                     hip
+6.           ~Q(a)                   Ae 2
+7.           P(a) & ~Q(a)           &i 5,6
+8.           @                       ~e 7,4
+			}
+9.      ~P(a)                        ~i 5-8
+	}
+10.Ax ~P(x)                          Ai 3-9
+
+""""
+"
+"Ax (P(x)->R(x)), Ax ~R(x) |- Ax ~P(x)","
+Prova:""""
+
+1. Ax(P(x) -> R(x))                pre
+2. Ax ~R(x)                        pre
+3. { a
+4.       P(a) -> R(a)              Ae 1
+5.       ~R(a)                     Ae 2
+6.       {  P(a)                   hip
+7.          R(a)                   ->e 6,4
+8.          @                      ~e 7,5
+       }   
+9.      ~P(a)                     ~i 6-8
+	}
+10.Ax ~P(x)                        Ai 3-9
+
+""""
+"
+|- Ax P(x)->~Ex ~P(x),"
+Prova:""""
+
+	1. { 	Ax  P(x) 					hip
+	2.		{ 	Ex ~P(x)			hip
+	3.	  	 	{ a		~P(a)		hip
+	4.					P(a)		    Ae 1
+	5.					@		        ~e 3,4
+					}
+	6.	 	 @	        			Ee 2, 3-5	
+			  }
+	7.   	~ Ex ~P(x)				~i 2-6
+		}
+	8. Ax P(x) -> ~Ex ~P(x) ->i 1-7
+
+""""
+"
+|- ~Ex ~P(x)->Ax P(x),"
+Prova:""""
+
+	1. 	{ 	~Ex ~P(x)					hip
+	2. 		{ 	a
+	3.			{ 	~ P(a)				hip
+	4.		  		Ex ~P(x)			Ei 3
+	5.		  		@					    ~e 1,4
+				  }
+	6.	  		P(a)					  raa 3-5
+			  }
+	7.		Ax P(x)					    Ai 2-6
+		}
+	8. 	~Ex ~P(x) -> Ax P(x)	->i 1-7
+
+""""
+"
+|- Ex P(x)->~Ax ~P(x),"
+Prova:""""
+
+        1.         {        Ex P(x)                                        hip
+        2.                 {         Ax ~P(x)                        hip
+        3.                        {         a         P(a)                        hip
+        4.                                  ~P(a)                                Ae 2
+        5.                                  @                                        ~e 3,4
+                                }
+        6.                     @                                                Ee 1, 3-5
+                        }
+        7.                ~ Ax ~P(x)                                ~i 2-6
+                 }
+        8.         Ex P(x) -> ~ Ax ~P(x)                ->i 1-7
+
+""""
+"
+Ex (P(x)&~Q(x)) |- ~Ax (P(x)->Q(x)),"
+Prova:""""
+
+1. Ex(P(x) & ~Q(x)) pre
+2. { Ax(P(x) -> Q(x)) hip
+3.   { a P(a) & ~Q(a) hip
+4.     P(a) &e 3
+5.     ~Q(a) &e 3
+6.     P(a) -> Q(a) Ae 2
+7.     Q(a) ->e 6,4
+8.     @ ~e 7,5
+}
+9.   @ Ee 1, 3-8
+}
+10. ~Ax(P(x) -> Q(x)) ~i 2-9
+
+""""
+"
+"|- Ax Ay P(x,y)->Ay Ax P(x,y)","
+Prova:""""
+
+        1. {        Ax Ay P(x,y)                                        hip
+        2.                {        b 
+        3.                        {        a 
+        4.                                Ay P(a,y)                                        Ae 1
+        5.                                P(a,b)                                                Ae 4
+                                }
+        6.                        Ax P(x,b)                                                Ai 3-5
+                        }
+        7.                Ay Ax P(x,y)                                        Ai 2-6
+           }
+        8. Ax Ay P(x,y) -> Ay Ax P(x,y)         ->i 1-7
+
+""""
+"
+|- Ax (P->Q(x))->(P->Ax Q(x)),"
+Prova:""""
+
+        1. {        Ax (P -> Q(x))                                        hip
+        2.        {        P                                                                         hip
+        3.                {         a 
+        4.                        P-> Q(a)                                                Ae 1
+        5.                        Q(a)                                                        ->e 2,4
+                        }
+        6.                Ax Q(x)                                                        Ai 3-5
+                }
+        7.        P -> Ax Q(x)                                                        ->i 2-6
+           }
+        8. (Ax (P -> Q(x))) -> (P -> Ax Q(x))         ->i 1-7
+
+""""
+"
+"Ax ~(H(x)&~M(x)), Ax H(x) |- Ax M(x)","
+Prova:""""
+
+1. Ax ~(H(x) & ~M(x)) pre
+2. Ax H(x) pre
+3. { a
+4.   ~(H(a) & ~M(a)) Ae 1
+5.   { ~M(a) hip
+6.     H(a) Ae 2
+7.     H(a) & ~M(a) &i 6,5
+8.     @ ~e 7,4
+}
+9.   M(a) raa 5-8
+}
+10. Ax M(x) Ai 3-9
+
+""""
+"
+|- ~Ax P(x)->Ex ~P(x),"
+Prova:""""
+
+	1. {	~ Ax P(x)				hip
+	2.	{ 	~ Ex ~ P(x)			hip 
+	3.		{ 	a 	 			
+	4.			{	~P(a)			hip
+	5.				Ex ~P(x)		Ei 4
+	6.				@				~e 5,2
+				}
+	7.			P(a)				raa 4-6
+			}
+	8.		Ax P (x)				Ai 3-7
+	9.		@						~e 1,8
+		}
+	10.	Ex ~ P(x)					raa 2-9
+		}
+	11. ~ Ax P(x) -> Ex ~ P(x) 	->i 1-10
+
+""""
+"
+|- Ex ~P(x)->~Ax P(x),"
+Prova:""""
+
+	1. {	Ex ~ P(x)				hip
+	2.	{ 	Ax P(x)				hip 
+	3.		{ a		~P(a)			hip 	 			
+	4.			P(a)				Ae 2
+	5.			@					~e 3,4
+			}
+	6.		@						Ee 1, 3-5
+		}
+	7.	~ Ax P(x)					~i 2-6
+	   }
+	8. Ex ~ P(x) -> ~ Ax P(x)  	->i 1-7
+
+""""
+"
+|- ~Ex P(x)->Ax ~P(x),"
+Prova:""""
+
+	1. {	~ Ex P(x)				hip
+	2.	{ 	a
+	3.		{ 	P(a)				hip 	 			
+	4.			Ex P(x)			Ei 3
+	5.			@					~e 4,1
+			}
+	6.		~P(a)					~i 3-5
+		}
+	7.	Ax ~P(x)					Ai 2-6
+	   }
+	8. ~ Ex P(x) -> Ax ~ P(x)  	->i 1-7
+
+""""
+"
+|- Ax ~P(x)->~Ex P(x),"
+Prova:""""
+
+	1. {	Ax ~ P(x)					hip
+	2.	{ 	Ex P(x)					hip
+	3.		{ a		P(a)				hip 	 			
+	4.			~ P(a)					Ae 1
+	5.			@						~e 3,4
+			}
+	6.		@							Ee 2, 3-5
+		}
+	7.	~ Ex P(x)						~i 2-6
+	   }
+	8. Ax ~ P(x) ->  ~ Ex P(x) 		->i 1-7
+
+""""
+"
+|- Ex (P(x)&Q)->(Ex P(x)&Q),"
+Prova:""""
+
+	1.  {	Ex(P(x) & Q)					hip
+	2.		{ a 	P(a) & Q				hip
+	3.			P(a)						&e 2	 			
+	4.			Ex P(x)					Ei 3
+			}
+	5.		Ex P(x)						Ee 1, 2-4
+	6.		{ a 	P(a) & Q				hip
+	7.			Q							&e 6
+			}
+	8.		Q								Ee 1, 6-7
+	9.		Ex P(x) & Q					&i 5,8
+		}
+	10. Ex (P(x) & Q) -> (Ex P(x) & Q)		->i 1-9
+
+""""
+"
+|- Ax (P(x)|Q)->(Ax P(x)|Q),"
+Prova:""""
+
+        1.  {        Ax(P(x) | Q)                                        hip
+        2.        {        ~(Ax P(x) | Q)                                hip
+        3.                {         a                                                
+        4.                        P(a) | Q                                        Ae 1
+        5.                        {        P(a)                                        hip
+                                  }
+        6.                        {        Q                                                hip        
+        7.                                Ax P(x) | Q                        |i 6
+        8.                                @                                                ~e 7,2
+        9.                                P(a)                                        @e 8
+                                 }
+        10.                 P(a)                                                |e 4, 5-5, 6-9
+                        }
+        11.                Ax P(x)                                                Ai 3-10
+        12.                Ax P(x) | Q                                         |i 11
+        13.                @                                                                ~e 2,12
+                }        
+        14.        Ax P(x) | Q                                                raa 2-13
+                }
+        15. Ax(P(x) | Q) -> (Ax P(x) | Q)        ->i 1-14
+
+""""
+"
+|- (Ax P(x)->Q)->Ex (P(x)->Q),"
+Prova:""""
+
+        1.  {        Ax P(x) -> Q                                                  hip
+        2.    {   ~Ex(P(x) -> Q)              hip
+        3.        { a
+        4.              {   ~P(a)               hip
+        5.                  {   P(a)            hip
+        6.                      @               ~e 4,5
+        7.                      Q               @e 6
+                                                }
+        8.                  P(a)->Q             ->i 5-7
+        9.                  Ex(P(x) -> Q)       Ei 8
+        10.                 @                   ~e 2,9
+                                        }
+        11.             P(a)                    raa 4-10
+                          }
+        12.       Ax P(x)                       Ai 3-11
+        13.       Q                             ->e 1,12
+        14.       {   P(a)                      hip
+        15.           Q                         copie 13
+                          }
+        16.       P(a)->Q                       ->i 14-15
+        17.              Ex(P(x) -> Q)                                                      Ei 16
+        18.       @                             ~e  2,17                      
+                  }
+        19.          Ex(P(x) -> Q)                                                          raa 2-18
+                }
+        20. (Ax P(x)->Q) -> Ex(P(x) -> Q)              ->i 1-19
+
+""""
+"
+|- Ex (P->Q(x))->(P->Ex Q(x)),"
+Prova:""""
+
+        1. {         Ex (P -> Q(x))                                hip
+        2.        {        P                                                                hip
+        3.                { a                P -> Q(a)                                hip
+        4.                        Q(a)                                                ->e 2,3
+        5.                        Ex Q(x)                                        Ei 4
+                        }                                
+        6.                Ex Q(x)                                                Ee 1, 3-5
+                }        
+        7.        P -> Ex Q(x)                                                ->i 2-6
+           }
+        8. Ex (P -> Q(x)) -> (P -> Ex Q(x))        ->i 1-7
+
+""""
+"
+|- (P->Ex Q(x))->Ex (P->Q(x)),"
+Prova:""""
+
+	1. { 	(P -> Ex Q(x))					hip
+	2.	{	~(~P | Ex Q(x))					hip
+	3.		{	P								      hip
+	4.      Ex Q(x)               ->e 3, 1
+	5.			~P | Ex Q(x)					|i 4
+	6.			@								~e 5,2
+			   }		
+	7.		~P									~i 3-6
+	8.		~P | Ex Q(x)						|i 7
+	9.		@									~e 8,2
+		  }
+	10.	~P | Ex Q(x)        raa 2-9
+	11.	{	~P									hip
+	12.		{	P								hip
+	13.			@								~e 11,12
+	14.     Q(a)            @e 13
+			  }
+	15.		P -> Q(a)							->i 12-14
+	16.		Ex  (P -> Q(x))					Ei 15
+		  }
+	17.	{	Ex Q(x)							hip
+	18.		{ a		Q(a)						hip
+	19.			{	P							hip
+	20.				Q(a)						copie 18
+				  }
+	21.			P -> Q(a)						->i 19-20
+	22.			Ex (P -> Q(x))				Ei 21
+			  }
+	23.		Ex (P -> Q(x))					Ee 17, 18-22
+		  }
+	24.	Ex (P -> Q(x))						|e 10, 11-16, 17-23
+		}
+	25. (P -> Ex Q(x)) -> Ex (P -> Q(x))	->i 1-24
+
+""""
+"
+|- Ex (P(x)->Ax P(x)),"
+Prova:""""
+
+	1. { 	~(Ex (P(x) -> Ax P(x)))		hip
+	2.	{ 	a			
+	3.		{	~P(a)						hip
+	4.			{	P(a)					hip
+	5.				@						~e 3,4
+	6.				Ax P(x)				@e 5
+				}
+	7.			P(a) -> Ax P(x)			->i  4-6
+	8.			Ex (P(x) -> Ax P(x))	Ei 7
+	9.			@							~e 8,1
+			}
+	10.		P(a)							raa 3-9
+		}
+	11.	Ax P(x)							Ai 2-10
+	12.	{	Ax P(x)						hip
+	13.		{	P(a)						hip
+	14.			Ax P(x)					copie 12		
+			}
+	15.		P(a) -> Ax P(x)				->i 13-14
+	16.		Ex (P(x) -> Ax P(x))		Ei 15
+	17.		@								~e 1, 16
+		}
+	18.	~Ax P(x)							~i 12-17
+	19.	@									~e 11,18
+		}
+	20. Ex (P(x) -> Ax P(x))			raa 1-19
+
+""""
+"
+|- Ex Ay (P(x)->P(y)),"
+Prova:""""
+
+        1. { ~(Ex Ay (P(x)->P(y)))        hip
+        2.    {        b
+        3.        {        P(a)                  hip
+        4.          { ~P(b)               hip        
+        5.            { c
+        6.              {        P(b)            hip
+        7.                @                      ~e 4,6
+        8.                P(c)            @e 7
+                                        }
+        9.              P(b)->P(c)        ->i 6-8
+                                  }       
+        10.           Ay (P(b)->P(y))            Ai 5-9
+        11.           Ex Ay (P(x)->P(y))  Ei 10
+        12.           @                   ~e1,11
+                                }
+        13.         P(b)                  raa 4-12
+                          }        
+        14.       P(a)->P(b)              ->i 3-13
+                  }
+        15.   Ay (P(a)->P(y))             Ai 2-14
+        16.   Ex Ay (P(x)->P(y))          Ei 15
+        17.   @                           ~e 1,16 
+           }
+        18.Ex Ay (P(x)->P(y))             raa 1-17
+
+""""
+"
+Ex (P(x)->Q(x)) |- Ax P(x)->Ex Q(x),"
+Prova:""""
+
+1. Ex (P(x) -> Q(x)) pre
+2. { Ax P(x) hip
+3. { a P(a) -> Q(a) hip
+4.   P(a) Ae 2
+5.   Q(a) ->e 4,3
+6.   Ex Q(x) Ei 5
+}
+7. Ex Q(x) Ee 1,3-6
+}
+8. Ax P(x) -> Ex Q(x) ->i 2-7
+
+""""
+"
+"Ax (Q(x)->R(x)), Ex (P(x)&Q(x)) |- Ex (P(x)&R(x))","
+Prova:""""
+
+	1. Ax(Q(x) -> R(x))             pre
+	2. Ex(P(x) & Q(x))              pre
+	3. { a P(a) & Q(a)              hip
+	4.     P(a)                     &e 3
+	5.     Q(a)                     &e 3
+	6.     Q(a) -> R(a)             Ae 1
+	7.     R(a)                     ->e 5,6
+	8.     P(a) & R(a)              &i 4,7
+	9.     Ex (P(x) & R(x))         Ei 8
+	   }
+	10.Ex (P(x) & R(x))             Ee 2,3-9
+
+""""
+"
+Ax Ey (P(x)|Q(y)) |- Ey Ax (P(x)|Q(y)),"
+Prova:""""
+
+	1. AxEy(P(x)|Q(y))					pre
+	2. { 	~EyAx(P(x)|Q(y))				hip
+	3.	{ a
+	4.		{	Ax(P(x)|Q(a))			hip
+	5.			EyAx(P(x)|Q(y))			Ei 4
+	6.			@				~e 2,5
+			}
+	7.		~Ax(P(x)|Q(a))				~i 4-6
+		}
+	8.	Ay~Ax(P(x)|Q(y))				Ai 3-7
+	9.	{ a
+	10.		~Ax(P(x)|Q(a))				Ae 8
+	11.		{	~Ex~(P(x)|Q(a))			hip
+	12.			{ b
+	13.				{ 	~(P(b)|Q(a))	hip
+	14.					Ex~(P(x)|Q(a))	Ei 13
+	15.					@		~e 11,14
+					}
+	16.				P(b)|Q(a)		raa 13-15
+				}
+	17.			Ax(P(x)|Q(a))			Ai 12-16
+	18.			@				~e 10,17
+			}
+	19.		Ex~(P(x)|Q(a))				raa 11-18
+		}	
+	20.	AyEx~(P(x)|Q(y))				Ai 9-19
+	21.    	Ex ~(P(x)|Q(b))					Ae 20
+	22.	{ a	~(P(a)|Q(b))				hip
+	23.		Ey(P(a)|Q(y))				Ae 1		
+	24.		{ c	P(a)|Q(c)			hip
+	25.			{	P(a)			hip
+	26.				P(a)|Q(b)		|i 25
+	27.				@			~e 22,26
+				}
+	28.			{	Q(c)			hip
+	29.				Ex ~(P(x)|Q(c))		Ae 20
+	30.				{ d	~(P(d)|Q(c))	hip
+	31.					P(d)|Q(c)	|i 28
+	32.					@		~e 30,31
+					}
+	33.				@			Ee 29, 30-32
+				}
+	34.			@				|e 24, 25-27, 28-33
+			}
+	35.		@					Ee 23, 24-34 
+		}	
+	36.	@						Ee 21, 22-35
+	   }
+	37. EyAx(P(x)|Q(y))					raa 2-36
+
+""""
+"
+"Ax (H(x)|M(x)), ~Ex H(x) |- Ax M(x)","
+Prova:""""
+
+	1. Ax (H(x)|M(x))          pre
+	2. ~Ex H(x)                pre
+	3. { a
+	4.       H(a)|M(a)         Ae 1
+	5.       {  H(a)           hip
+	6.          Ex H(x)        Ei 5
+	7.          @              ~e 2,6
+	8.          M(a)           @e 7
+			 }
+	9.       {  M(a)           hip
+			 }
+	10.      M(a)              |e 4, 5-8, 9-9
+	   }
+	11.Ax M(x)                 Ai 3-10
+
+""""
+"
+"Ax (H(x)|M(x)), Ax ~H(x) |- Ax M(x)","
+Prova:""""
+
+	1. Ax (H(x)|M(x))          pre
+	2. Ax ~H(x)                pre
+	3. { a
+	4.       H(a)|M(a)         Ae 1
+	5.       {  H(a)           hip
+	6.          ~H(a)          Ae 2
+	7.          @              ~e 5,6
+	8.          M(a)           @e 7
+			 }
+	9.       {  M(a)           hip
+			 }
+	10.      M(a)              |e 4, 5-8, 9-9
+	   }
+	11.Ax M(x)                 Ai 3-10
+
+""""
+"
+"Ax ~(H(x)&~M(x)), Ax H(x) |- Ax M(x)","
+Prova:""""
+
+	1. Ax ~(H(x)&~M(x))            pre
+	2. Ax H(x)                     pre
+	3. { a
+	4.       ~(H(a)&~M(a))         Ae 1
+	5.       {  ~M(a)              hip
+	6.          H(a)               Ae 2
+	7.          H(a)&~M(a)         &i 6,5
+	8.          @                  ~e 7,4
+			 }
+	9.       M(a)                  raa 5-8
+	   }
+	10.Ax M(x)                     Ai 3-9
+
+""""
+"
+"Ax ~(H(x)&~M(x)), ~Ax M(x) |- ~Ax H(x)","
+Prova:""""
+
+	1. Ax ~(H(x)&~M(x))            pre
+	2. ~Ax M(x)                    pre
+	3. {     Ax H(x)               hip
+	4.       { a
+	5.            {  ~M(a)         hip
+	6.               H(a)          Ae 3
+	7.               H(a)&~M(a)    &i 6,5
+	8.               ~(H(a)&~M(a)) Ae 1
+	9.               @             ~e 7,8
+				  }
+	10.           M(a)             raa 5-9
+			 }
+	11.      Ax M(x)               Ai 4-10 
+	12.      @                     ~e 2,11
+	   }
+	13.~Ax H(x)                    ~i 3-12
+
+""""
+"
+"Ax ~(H(x)&~M(x)), Ex ~M(x) |- ~Ax H(x)","
+Prova:""""
+
+	1. Ax ~(H(x)&~M(x))            pre
+	2. Ex ~M(x)                    pre
+	3. {     Ax H(x)               hip
+	4.       { a  ~M(a)            hip
+	5.            H(a)             Ae 3
+	6.            H(a)&~M(a)       &i 5,4
+	7.            ~(H(a)&~M(a))    Ae 1
+	8.            @                ~e 6,7
+			 }
+	9.       @                     Ee 2, 4-8
+	   }
+	10.~Ax H(x)                    ~i 3-9
+
+""""
+"
+"Ax ~(H(x)&~M(x)), ~Ax M(x) |- Ex ~H(x)","
+Prova:""""
+
+	1. Ax ~(H(x)&~M(x))            pre
+	2. ~Ax M(x)                    pre
+	3. {     ~Ex ~H(x)             hip
+	4.       { a
+	5.            {  ~M(a)         hip
+	6.               {  ~H(a)      hip
+	7.                  Ex~H(x)    Ei 6
+	8.                  @          ~e 3,7
+					 }
+	9.               H(a)          raa 6-8
+	10.              H(a)&~M(a)    &i 9,5
+	11.              ~(H(a)&~M(a)) Ae 1
+	12.              @             ~e 10,11
+				  }
+	13.           M(a)             raa 5-12
+			 }
+	14.      Ax M(x)               Ai 4-13 
+	15.      @                     ~e 2,14
+	   }
+	16.Ex ~H(x)                    raa 3-15
+
+""""
+"
+"Ax ~(H(x)&~M(x)), Ex ~M(x) |- Ex ~H(x)","
+Prova:""""
+
+	1. Ax ~(H(x)&~M(x))            pre
+	2. Ex ~M(x)                    pre
+	3. { a   ~M(a)                 hip
+	4.       {    H(a)             hip
+	5.            H(a)&~M(a)       &i 4,3
+	6.            ~(H(a)&~M(a))    Ae 1
+	7.            @                ~e 5,6
+			 }
+	8.       ~H(a)                 ~i 4-7                     
+	9.       Ex ~H(x)              Ei 8
+	   }
+	10.Ex ~H(x)                    Ee 2, 3-9
+
+""""
+"
+"Ax (~H(x)|M(x)), Ex H(x) |- Ex M(x)","
+Prova:""""
+
+	1. Ax (~H(x)|M(x))          pre
+	2. Ex H(x)                 pre
+	3. { a   H(a)              hip
+	4.       ~H(a)|M(a)        Ae 1
+	5.       {  ~H(a)          hip
+	6.          @              ~e 3,5
+	7.          Ex M(x)        @e 6
+			 }
+	8.       {  M(a)           hip
+	9.          Ex M(x)        Ei 8
+			 }
+	10.      Ex M(x)           |e 4, 5-7, 8-9
+	   }
+	11.Ex M(x)                 Ee 2, 3-10
+
+""""
+"
+"Ax (H(x)|M(x)), Ex ~H(x) |- Ex M(x)","
+Prova:""""
+
+	1. Ax (H(x)|M(x))          pre
+	2. Ex ~H(x)                pre
+	3. { a   ~H(a)             hip
+	4.       H(a)|M(a)         Ae 1
+	5.       {  H(a)           hip
+	6.          @              ~e 3,5
+	7.          Ex M(x)        @e 6
+			 }
+	8.       {  M(a)           hip
+	9.          Ex M(x)        Ei 8
+			 }
+	10.      Ex M(x)           |e 4, 5-7, 8-9
+	   }
+	11.Ex M(x)                 Ee 2, 3-10
+
+""""
+"
+"Ax (H(x)->M(x)), Ax (M(x)->P(x)) |- Ax (H(x)->P(x))","
+Prova:""""
+
+	1. Ax (H(x)->M(x))        pre
+	2. Ax (M(x)->P(x))        pre
+	3. { a   
+	4.       {  H(a)          hip
+	5.          H(a)->M(a)    Ae 1
+	6.          M(a)          ->e 4,5
+	7.          M(a)->P(a)    Ae 2
+	8.          P(a)          ->e 6,7
+			 }
+	9.       H(a)->P(a)       ->i 4-8
+	   }
+	10.Ax (H(x)->P(x))        Ai  3-9
+
+""""
+"
+"Ax (H(x)|M(x)), Ax (H(x)->P(x)), Ax (M(x)->P(x)) |- Ax P(x)","
+Prova:""""
+
+	1. Ax (H(x)|M(x))         pre
+	2. Ax (H(x)->P(x))        pre
+	3. Ax (M(x)->P(x))        pre
+	4. { a   
+	5.       H(a)|M(a)        Ae 1
+	6.       {  H(a)          hip
+	7.          H(a)->P(a)    Ae 2
+	8.          P(a)          ->e 6,7
+			 }
+	9.       {  M(a)          hip
+	10.         M(a)->P(a)    Ae 3
+	11.         P(a)          ->e 9,10
+			 }
+	12.      P(a)             |e 5, 6-8, 9-11
+	   }
+	13.Ax P(x)                Ai  4-12
+
+""""
+"
+Ax (H(x)->M(x)) |- Ax (~M(x)->~H(x)),"
+Prova:""""
+
+	1. Ax (H(x)->M(x))        pre
+	2. { a   
+	3.       {  ~M(a)           hip
+	4.          {   H(a)        hip
+	5.              H(a)->M(a)  Ae 1
+	6.              M(a)        ->e 4,5
+	7.              @           ~e 3,6
+				}
+	8.          ~H(a)          ~i 4-7
+			 }
+	9.       ~M(a)->~H(a)       ->i 3-8
+	   }
+	10.Ax (~M(x)->~H(x))        Ai  2-9
+
+""""
+"
+Ax (~M(x)->~H(x)) |- Ax (H(x)->M(x)),"
+Prova:""""
+
+	1. Ax (~M(x)->~H(x))        pre
+	2. { a   
+	3.       {  H(a)              hip
+	4.          {   ~M(a)         hip
+	5.              ~M(a)->~H(a)  Ae 1
+	6.              ~H(a)         ->e 4,5
+	7.              @             ~e 3,6
+				}
+	8.          M(a)              raa 4-7
+			 }
+	9.       H(a)->M(a)           ->i 3-8
+	   }
+	10.Ax (H(x)->M(x))            Ai  2-9
+
+""""
+"
+Ax (H(x)->M(x)) |- Ax (~H(x)|M(x)),"
+Prova:""""
+
+	1. Ax (H(x)->M(x))          pre
+	2. { a   
+	3.       {  ~(~H(a)|M(a))    hip
+	4.          {   H(a)         hip
+	5.              H(a)->M(a)   Ae 1
+	6.              M(a)         ->e 4,5
+	7.              ~H(a)|M(a)   |i 6
+	8.              @            ~e 3,7
+				}
+	9.          ~H(a)            ~i 4-8
+	10.         ~H(a)|M(a)       |i 9
+	11.         @                ~e 3,10
+			 }
+	12.      ~H(a)|M(a)          raa 3-11
+	   }
+	13.Ax (~H(x)|M(x))        Ai  2-12
+
+""""
+"
+Ax (~H(x)|M(x)) |- Ax (H(x)->M(x)),"
+Prova:""""
+
+	1. Ax (~H(x)|M(x))        pre
+	2. { a   
+	3.       ~H(a)|M(a)       Ae 1
+	4.       {   H(a)         hip
+	5.           {  ~H(a)     hip
+	6.              @         ~e 4,5
+	7.              M(a)      @e 6
+				 }
+	8.           { M(a)       hip
+				 }
+	9.           M(a)         |e 3, 5-7, 8-8
+			 }
+	10.      H(a)->M(a)       ->i 4-9
+	   }
+	11.Ax (H(x)->M(x))        Ai  2-10
+
+""""
+"
+Ax (~H(x)|M(x)) |- Ax (~M(x)->~H(x)),"
+Prova:""""
+
+	1. Ax (~H(x)|M(x))         pre
+	2. { a   
+	3.       ~H(a)|M(a)        Ae 1
+	4.       {   ~M(a)         hip
+	5.           {  ~H(a)      hip
+				 }
+	6.           { M(a)        hip
+	7.              @          ~e 4,6
+	8.              ~H(a)      @e 7
+				 }
+	9.           ~H(a)         |e 3, 5-5, 6-8
+			 }
+	10.      ~M(a)->~H(a)      ->i 4-9
+	   }
+	11.Ax (~M(x)->~H(x))       Ai  2-10
+
+""""
+"
+Ax (~M(x)->~H(x)) |- Ax (~H(x)|M(x)),"
+Prova:""""
+
+	1. Ax (~M(x)->~H(x))          pre
+	2. { a   
+	3.       {  ~(~H(a)|M(a))      hip
+	4.          {   ~M(a)          hip
+	5.              ~M(a)->~H(a)   Ae 1
+	6.              ~H(a)          ->e 4,5
+	7.              ~H(a)|M(a)     |i 6
+	8.              @              ~e 3,7
+				}
+	9.          M(a)             raa 4-8
+	10.         ~H(a)|M(a)       |i 9
+	11.         @                ~e 3,10
+			 }
+	12.      ~H(a)|M(a)          raa 3-11
+	   }
+	13.Ax (~H(x)|M(x))        Ai  2-12
+
+""""
+"
+"Ax (H(x)&M(x)), ~Ex ~H(x) |- Ax M(x)","
+Prova:""""
+	1. Ax (H(x)&M(x))          pre
+	2. ~Ex ~H(x)               pre
+	3. { a
+	4.       H(a)&M(a)         Ae 1
+	5.       M(a)              &e 4
+	   }
+	6. Ax M(x)                 Ai 3-5
+
+""""
+"
+"Ax (H(x)&M(x)), Ax ~H(x) |- Ax M(x)","
+Prova:""""
+
+	1. Ax (H(x)&M(x))          pre
+	2. Ax ~H(x)                pre
+	3. { a
+	4.       H(a)&M(a)         Ae 1
+	5.       ~H(a)             Ae 2
+	6.       M(a)              &e 4
+	   }
+	7. Ax M(x)                 Ai 3-6
+
+""""
+"
+|- Ex (P(x)&Q(x))->(Ex P(x)&Ex Q(x)),"
+Prova:""""
+
+1.  { Ex(P(x)&Q(x))                               hip
+2.     { a  P(a) & Q(a)                           hip
+3.        P(a)                                    &e 2
+4.        Ex P(x)                                 Ei 3
+       }
+5.     Ex P(x)                                    Ee 1,2-4
+6.     { a  P(a) & Q(a)                           hip
+7.        Q(a)                                    &e 6
+8.        Ex Q(x)                                 Ei 7
+       }
+9.     Ex Q(x)                                    Ee 1,6-8
+10.    Ex P(x) & Ex Q(x)                          &i 5, 9
+    }
+11.  Ex(P(x)&Q(x)) -> (Ex P(x) & Ex Q(x))         ->i 1-10
+
+""""
+"
+Ax ((P(x)->Q(x))&(Q(x)->P(x))) |- Ax ((~P(x)->~Q(x))&(~Q(x)->~P(x))),"
+Prova:""""
+
+1. Ax((P(x) -> Q(x)) & (Q(x) -> P(x))) pre
+2. { a
+3.   (P(a) -> Q(a)) & (Q(a) -> P(a)) Ae 1
+4.   P(a) -> Q(a) &e 3
+5.   Q(a) -> P(a) &e 3
+6.   { ~Q(a) hip
+7.     { P(a) hip
+8.       Q(a) ->e 7,4
+9.       @ ~e 6,8
+}
+10.   ~P(a) ~i 7-9
+}
+11. ~Q(a) -> ~P(a) ->i 6-10
+12. { ~P(a) hip
+13.   { Q(a) hip
+14.     P(a) ->e 13,5
+15.     @ ~e 12,14
+}
+16.   ~Q(a) ~i 13-15
+}
+17. ~P(a) -> ~Q(a) ->i 12-16
+18. (~P(a) -> ~Q(a)) & (~Q(a) -> ~P(a)) &i 17,11
+}
+19. Ax((~P(x) -> ~Q(x)) & (~Q(x) -> ~P(x))) Ai 2-18
+
+""""
+"
+|- Ex (P(x)|Q(x))->(Ex P(x)|Ex Q(x)),"
+Prova:""""
+
+1.  { Ex(P(x) | Q(x))                             hip
+2.     { a P(a) | Q(a)                            hip
+3.        { P(a)                                  hip
+4.            Ex P(x)                             Ei 3
+5.            Ex P(x) | Ex Q(x)                   |i 4
+           }
+6.        { Q(a)                                  hip
+7.            Ex Q(x)                             Ei 6
+8.            Ex P(x) | Ex Q(x)                   |i 7
+           }
+9.         Ex P(x) | Ex Q(x)                      |e 2,3-5,6-8
+       }
+10.    Ex P(x) | Ex Q(x)                          Ee 1,2-9
+     }
+11.  Ex(P(x) | Q(x)) -> (Ex P(x) | Ex Q(x))       ->i 1-10
+
+""""
+"
+(P(a)->Q(a))&Ax (P(x)->Q(x)) |- P(b)->Q(b),"
+Prova:""""
+
+1. (P(a) -> Q(a)) & Ax(P(x) -> Q(x))   pre
+2. P(a) -> Q(a)                       &e 1
+3. Ax(P(x) -> Q(x))                   &e 1
+4. { P(b)                              hip
+5.   P(b) -> Q(b)                     Ae 3
+6.   Q(b)                              ->e 4,5
+   }
+7. P(b) -> Q(b)                        ->i 4-6
+
+""""
+"
+"Ex (P(x)&Q(x)), Ax (P(x)->R(x)) |- Ex R(x)","
+Prova:""""
+
+1. Ex(P(x) & Q(x))   pre
+2. Ax(P(x) -> R(x))  pre
+3. { a (P(a) & Q(a)) hip
+4.   P(a)           &e 3
+5.   P(a) -> R(a)   Ae 2
+6.   R(a)           ->e 4,5
+7.   ExR(x)         Ei 6
+   }
+8. ExR(x)           Ee 1,3-7
+
+""""
+"
+"Ax (P->Q(x)), P |- Ax Q(x)","
+Prova:""""
+
+1. Ax (P -> Q(x)) pre
+2. P pre
+3. { a
+4.   P -> Q(a) Ae 1
+5.   Q(a) ->e 2,4
+}
+6. Ax Q(x) Ai 3-5
+
+""""
+"
+"Ax P(x)->B, Ax P(x), B->Q(b) |- Ex Q(x)","
+Prova:""""
+
+1.	Ax P(x) -> B 	                     pre
+2.	Ax P(x)		                      pre
+3.	P(b)				                      Ae 2
+4.	B					                        ->e 1,2
+5.     B -> Q(b)              pre
+6.     Q(b)                   ->e 4,5
+7.     ExQ(x)                 Ei 6
+
+""""
+"
+Ax ((P(x)->Q(x))&(Q(x)->P(x))) |- Ax P(x)->Ax Q(x),"
+Prova:""""
+
+1. Ax((P(x) -> Q(x)) & (Q(x) -> P(x))) pre
+2. { Ax P(x) hip
+3. { a
+4.   (P(a) -> Q(a)) & (Q(a) -> P(a)) Ae 1
+5.   P(a) -> Q(a) &e 4
+6.   P(a) Ae 2
+7.   Q(a) ->e 6,5
+}
+8. Ax Q(x) Ai 3-7
+}
+9. Ax P(x) -> Ax Q(x) ->i 2-8
+
+""""
+"
+|- Ex (P(x)|Q)->(Ex P(x)|Q),"
+Prova:""""
+
+1.  {	Ex(P(x) | Q)					hip
+2.		{ a 	P(a) | Q				hip
+3.		{	P(a)						hip
+4.			Ex P(x)					Ei 3
+5.			Ex P(x) | Q				|i 4
+			}
+6.		{	Q							hip
+7.			Ex P(x) | Q				|i 6
+		}
+8.		Ex P(x) | Q					|e 2, 3-5, 6-7
+	}
+9.	Ex P(x) | Q						Ee 1, 2-8
+	}
+10. Ex (P(x) | Q) -> (Ex P(x) | Q) 	->i 1-9
+
+""""
+"
+"Ax (P(x)->S(x)), Ay (P(y)->T(y)) |- Az (P(z)->(S(z)&T(z)))","
+Prova:""""
+
+1. Ax(P(x) -> S(x))             pre
+2. Ay(P(y) -> T(y))             pre
+3. { a 
+4.     P(a) -> S(a)             Ae 1
+5.     P(a) -> T(a)             Ae 2
+6.     { P(a)                   hip
+7.         S(a)                 ->e 6,4
+8.         T(a)                 ->e 6,5
+9.         S(a) & T(a)          &i 7,8
+			}
+10.    P(a) -> S(a) & T(a)      ->i 6-9
+	}
+11. Az(P(z) -> S(z) & T(z))    Ai 3-10
+
+""""
+"
+|- P(x)->(P(x)|Q(x)),"
+Prova:""""
+
+1. 	{ 	P(x)					hip
+2.		P(x) | Q(x)			|i 1
+		}
+3.	 P(x) -> (P(x) | Q(x))	->i 1-2
+
+""""
+"
+|- ~~P(x)->P(x),"
+Prova:""""
+
+1. 	{ 	~ ~P(x)				hip
+2. 		{ 	~P(x)				hip
+3.  			@					~e 1,2
+			}
+4.	  	P(x)					raa 2-3
+		}
+5.	 ~ ~P(x) -> P(x)		->i 1-4
+
+""""
+"
+|- P(x)->~~P(x),"
+Prova:""""
+
+1. 	{ 	P(x)					hip
+2. 		{ 	~P(x)				hip
+3.  			@					    ~e 1,2
+			}
+4.	 	~ ~P(x)				~i 2-3
+		}
+5.	 P(x) -> ~ ~P(x)		->i 1-4
+
+""""
+"
+|- Ax (P(x)->Q(x))->(Ex P(x)->Ex Q(x)),"
+Prova:""""
+
+1.	{ Ax (P(x) -> Q(x))		hip
+2.		{ Ex P(x)				hip
+3.			{ a	P(a)			hip
+4.				(P(a) -> Q(a))	Ae 1
+5. 				Q(a)			->e 4,3
+6. 				Ex Q(x)			Ei 5
+			}
+7. 			Ex Q(x)			Ee 2,3-6
+		}
+8. 	Ex P(x) -> Ex Q(x)		->i 2-7
+}
+9.	Ax (P(x) -> Q(x)) -> (Ex P(x) -> Ex Q(x))	->i 1-8
+
+""""
+"
+|- Ax (P(x)&Q(x))->(Ax P(x)&Ax Q(x)),"
+Prova:""""
+
+1. { Ax(P(x) & Q(x)) hip
+2.   { a
+3.     P(a) & Q(a) Ae 1
+4.     P(a) &e 3
+   }
+5.   Ax P(x) Ai 2-4
+6.   { a
+7.     P(a) & Q(a) Ae 1
+8.     Q(a) &e 7
+    }
+9.   Ax Q(x) Ai 6-8
+10.  Ax P(x) & Ax Q(x) &i 5,9
+ }
+11. Ax(P(x) & Q(x)) -> (Ax P(x) & Ax Q(x)) ->i 1-10
+
+""""
+"
+|- ~Ex (P(x)&~P(x)),"
+Prova:""""
+
+1. { Ex(P(x) & ~P(x)) hip
+2.   { a P(a) & ~P(a) hip
+3.     P(a) &e 2
+4.     ~P(a) &e 2
+5.     @ ~e 3,4
+   }
+6.  @ Ee 1,2-5
+}
+7. ~Ex(P(x) & ~P(x)) ~i 1-6
+
+""""
+"
+|- Ax (P(x)->~Q(x))->~Ex (P(x)&Q(x)),"
+Prova:""""
+
+1. { Ax(P(x) -> ~Q(x)) hip
+2.   { Ex(P(x) & Q(x)) hip
+3.     { a P(a) & Q(a) hip
+4.       P(a) -> ~Q(a) Ae 1
+5.       P(a) &e 3
+6.       ~Q(a) ->e 4,5
+7.       Q(a) &e 3
+8.       @ ~e 6,7
+      }
+9.    @ Ee 2,3-8
+   }
+10.  ~Ex(P(x) & Q(x)) ~i 2-9
+}
+11. Ax(P(x) -> ~Q(x)) -> ~Ex(P(x) & Q(x)) ->i 1-10
+
+""""
+"
+|- Ax (P(x)|Q(x))->(Ax ~P(x)->Ax Q(x)),"
+Prova:""""
+
+1. { Ax(P(x) | Q(x)) hip
+2.   { Ax ~P(x) hip
+3.     { a
+4.       P(a) | Q(a) Ae 1
+5.       { P(a) hip
+6.         ~P(a) Ae 2
+7.         @ ~e 5,6
+8.	   Q(a) @e 7
+        }
+9.       { Q(a) hip
+10.        Q(a) copie 9
+        }
+11.      Q(a) |e 4,5-8,9-10
+      }
+12.    Ax Q(x) Ai 3-11
+    }
+13.  Ax ~P(x) -> Ax Q(x) ->i 2-12
+}
+14. Ax(P(x) | Q(x)) -> (Ax ~P(x) -> Ax Q(x)) ->i 1-13
+
+""""
+"
+|- Ex (P(x)->Ay Q(y))->(Ax P(x)->Ay Q(y)),"
+Prova:""""
+
+1. { Ex(P(x) -> Ay Q(y)) hip
+2.   { Ax P(x) hip
+3.     { a P(a) -> Ay Q(y) hip
+4.       P(a) Ae 2
+5.       Ay Q(y) ->e 3,4
+6.       { b
+7.         Q(b) Ae 5
+        }
+8.       Ay Q(y) Ai 6-7
+       }
+9.    Ay Q(y) Ee 1,3-8
+    }
+10.  (Ax P(x) -> Ay Q(y)) ->i 2-9
+}
+11.  (Ex(P(x) -> Ay Q(y)) -> (Ax P(x) -> Ay Q(y))) ->i 1-10
+
+""""
+"
+|- ~Ex (P(x)&~Q(x))->Ax (P(x)->Q(x)),"
+Prova:""""
+
+1. { ~Ex (P(x) & ~Q(x)) hip
+2.  { a
+3.   { P(a) hip
+4.    { ~Q(a) hip
+5.     P(a) & ~Q(a) &i 3, 4
+6.     Ex (P(x) & ~Q(x)) Ei 5
+7.     @ ~e 6, 1
+       }
+8.    Q(a) raa 4-7
+      }
+9.   P(a) -> Q(a) ->i 3-8
+   }
+10.  Ax (P(x) -> Q(x)) Ai 2-9
+}
+11. ~Ex (P(x) & ~Q(x)) -> Ax (P(x) -> Q(x)) ->i 1-10
+
+""""
+"
+|- Ax (P(x)->(Q(x)&R(x)))->(Ax P(x)->Ax Q(x)),"
+Prova:""""
+
+1. { Ax (P(x) -> (Q(x) & R(x))) hip
+2.   { Ax P(x) hip
+3.     { a
+4.       P(a) -> (Q(a) & R(a)) Ae 1
+5.       P(a) Ae 2
+6.       Q(a) & R(a) ->e 4,5
+7.       Q(a) &e 6
+      }
+8.    Ax Q(x) Ai 3-7
+   }
+9.   Ax P(x) -> Ax Q(x) ->i 2-8
+}
+10. Ax (P(x) -> (Q(x) & R(x))) -> (Ax P(x) -> Ax Q(x)) ->i 1-9
+
+""""
+"
+|- Ax (Ey P(y)->Q(x))->(Ey P(y)->Ax Q(x)),"
+Prova:""""
+
+1. { Ax (Ey P(y) -> Q(x)) hip
+2.   { Ey P(y) hip
+3.     { a
+4.       Ey P(y) -> Q(a) Ae 1
+5.       Q(a) ->e 2,4
+      }
+6.     Ax Q(x) Ai 3-5
+   }
+7.  Ey P(y) -> Ax Q(x) ->i 2-6
+}
+8. Ax (Ey P(y) -> Q(x)) -> (Ey P(y) -> Ax Q(x)) ->i 1-7
+
+""""
+"
+|- (Ax P(x)|Ax Q(x))->Ax (P(x)|Q(x)),"
+Prova:""""
+
+1. { Ax P(x) | Ax Q(x) hip
+2.   { Ax P(x) hip
+3.     { a
+4.        P(a) Ae 2
+5.        P(a) | Q(a) |i 4
+       }
+6.     Ax (P(x) | Q(x)) Ai 3-5
+   }
+7.   { Ax Q(x) hip
+8.     { a
+9.       Q(a) Ae 7
+10.      P(a) | Q(a) |i 9
+       }
+11.     Ax (P(x) | Q(x)) Ai 8-10
+   }
+12.   Ax (P(x) | Q(x)) |e 1, 2-6, 7-11
+}
+13. (Ax P(x) | Ax Q(x)) -> Ax (P(x) | Q(x)) ->i 1-12
+
+""""
+"
+|- Ex (P(x)&Q(x))->Ex P(x),"
+Prova:""""
+
+1. { Ex (P(x) & Q(x)) hip
+2.  { a P(a) & Q(a) hip
+3.     P(a) &e 2
+4.     Ex P(x) Ei 3
+   }
+5.   Ex P(x) Ee 1, 2-4
+}
+6. Ex (P(x) & Q(x)) -> Ex P(x) ->i 1-5
+
+""""
+"
+"Ax (P(x)->Q(x)), Ax P(x) |- Ax Q(x)","
+Prova:""""
+
+1. Ax(P(x) -> Q(x)) pre
+2. Ax P(x) pre
+3. { a
+4.   P(a) Ae 2
+5.   P(a) -> Q(a) Ae 1
+6.   Q(a) ->e 5,4
+}
+7. Ax Q(x) Ai 3-6
+
+""""
+"
+"Ax (P(x)->Q(x)), Ax (Q(x)->R(x)) |- Ex (P(x)&S(x))->Ex (R(x)&S(x))","
+Prova:""""
+
+1. Ax(P(x) -> Q(x)) pre
+2. Ax(Q(x) -> R(x)) pre
+3. { Ex(P(x) & S(x)) hip
+4. { a P(a) & S(a) hip
+5.   P(a) &e 4
+6.   S(a) &e 4
+7.   P(a) -> Q(a) Ae 1
+8.   Q(a) ->e 5,7
+9.   Q(a) -> R(a) Ae 2
+10.  R(a) ->e 8,9
+11.  R(a) & S(a) &i 10,6
+12.  Ex(R(x) & S(x)) Ei 11
+}
+13. Ex(R(x) & S(x)) Ee 3,4-12
+}
+14. Ex(P(x) & S(x)) -> Ex(R(x) & S(x)) ->i 3-13
+
+""""
+"
+P->Ax Q(x) |- Ax (P->Q(x)),"
+Prova:""""
+
+1. P -> Ax Q(x) pre
+2. { a
+3.   { P hip
+4.     Ax Q(x) ->e 1,3
+5.     Q(a) Ae 4
+}
+6.   P -> Q(a) ->i 3-5
+}
+7. Ax (P -> Q(x)) Ai 2-6
+
+""""
+"
+"Ex (P(x)->Q(x)), Ax P(x) |- Ex Q(x)","
+Prova:""""
+
+1. Ex(P(x) -> Q(x)) pre
+2. Ax P(x) pre
+3. { a P(a) -> Q(a) hip
+4.   P(a) Ae 2
+5.   Q(a) ->e 3, 4
+6.   Ex Q(x) Ei 5
+}
+7. Ex Q(x) Ee 1, 3-6
+
+""""
+"
+~Ex (P(x)&Q(x)) |- Ax (P(x)->~Q(x)),"
+Prova:""""
+
+1. ~Ex(P(x) & Q(x)) pre
+2. { a
+3.   { P(a) hip
+4.     { Q(a) hip
+5.       P(a) & Q(a) &i 3, 4
+6.       Ex(P(x) & Q(x)) Ei 5
+7.       @ ~e 6, 1
+}
+8.     ~Q(a) ~i 4-7
+}
+9.   P(a) -> ~Q(a) ->i 3-8
+}
+10. Ax(P(x) -> ~Q(x)) Ai 2-9
+
+""""
+"
+"Ex P(x), Ax Ay (P(x)->Q(y)) |- Ay Q(y)","
+Prova:""""
+
+1. ExP(x) pre
+2. AxAy(P(x)->Q(y)) pre
+3. { b
+4.   { a P(a) hip
+5.     Ay(P(a)->Q(y)) Ae 2
+6.     P(a)->Q(b) Ae 5
+7.     Q(b) ->e 4,6
+}
+8.   Q(b) Ee 1,4-7
+}
+9. AyQ(y) Ai 3-8
+
+""""
+"
+"Ex (F(x)&G(x)), Ax (H(x)->~G(x)) |- Ex (F(x)&~H(x))","
+Prova:""""
+
+1. Ex(F(x) & G(x)) pre
+2. Ax(H(x) -> ~G(x)) pre
+3. { a F(a) & G(a) hip
+4.   F(a) &e 3
+5.   G(a) &e 3
+6.   H(a) -> ~G(a) Ae 2
+7.   { H(a) hip
+8.     ~G(a) ->e 7,6
+9.     @ ~e 5,8
+}
+10.  ~H(a) ~i 7-9
+11.  F(a) & ~H(a) &i 4,10
+12.  Ex(F(x) & ~H(x)) Ei 11
+}
+13. Ex(F(x) & ~H(x)) Ee 1,3-12
+
+""""
+"
+Ex (P(x)&Q(x)) |- Ex P(x)&Ex Q(x),"
+Prova:""""
+
+1. Ex(P(x)&Q(x)) pre
+2. { a P(a) & Q(a) hip
+3.   P(a) &e 2
+4.   Ex P(x) Ei 3
+}
+5. Ex P(x) Ee 1,2-4
+6. { a P(a) & Q(a) hip
+7.   Q(a) &e 6
+8.   Ex Q(x) Ei 7
+}
+9. Ex Q(x) Ee 1,6-8
+10. Ex P(x) & Ex Q(x) &i 5,9
+
+""""
+"
+"Ex P(x), Ax (P(x)->Q) |- Q","
+Prova:""""
+
+1. Ex P(x) pre
+2. Ax(P(x) -> Q) pre
+3. { a P(a) hip
+4.   P(a) -> Q Ae 2
+5.   Q ->e 4,3
+}
+6. Q Ee 1, 3-5
+
+""""
+"
+Ax (P(x)&Q(x)) |- Ax Q(x),"
+Prova:""""
+
+1. Ax(P(x) & Q(x)) pre
+2. { a
+3.   P(a) & Q(a) Ae 1
+4.   Q(a) &e 3
+}
+5. Ax Q(x) Ai 2-4
+
+""""
+"
+P&Ax Q(x) |- Ax (P&Q(x)),"
+Prova:""""
+
+1. P & Ax Q(x) pre
+2. P &e 1
+3. Ax Q(x) &e 1
+4. { a
+5.   Q(a) Ae 3
+6.   P & Q(a) &i 2,5
+}
+7. Ax(P & Q(x)) Ai 4-6
+
+""""
+"
+Ax (P(x)->Q(x))&Ax P(x) |- Ax Q(x),"
+Prova:""""
+
+1. Ax (P(x) -> Q(x)) & Ax P(x) pre
+2. Ax (P(x) -> Q(x)) &e 1
+3. Ax P(x) &e 1
+4. { a
+5.   P(a) -> Q(a) Ae 2
+6.   P(a) Ae 3
+7.   Q(a) ->e 5,6
+}
+8. Ax Q(x) Ai 4-7
+
+""""
+"
+Ax P(x) |- Ax (P(x)|Q(x)),"
+Prova:""""
+
+1. Ax P(x) pre
+2. { a
+3.   P(a) Ae 1
+4.   P(a) | Q(a) |i 3
+}
+5. Ax (P(x) | Q(x)) Ai 2-4
+
+""""
+"
+Ax (P(x)&Q) |- Ax P(x),"
+Prova:""""
+
+1. Ax(P(x) & Q) pre
+2. { a
+3.   P(a) & Q Ae 1
+4.   P(a) &e 3
+}
+5. Ax P(x) Ai 2-4
+
+""""
+"
+Ax (~P(x)|~Q(x)) |- ~Ex (P(x)&Q(x)),"
+Prova:""""
+
+1. Ax(~P(x) | ~Q(x)) pre
+2. { Ex(P(x) & Q(x)) hip
+3.   { a P(a) & Q(a) hip
+4.     P(a) &e 3
+5.     Q(a) &e 3
+6.     ~P(a) | ~Q(a) Ae 1
+7.     { ~P(a) hip
+8.       @ ~e 4,7
+}
+9.     { ~Q(a) hip
+10.      @ ~e 5,9
+}
+11.    @ |e 6, 7-8, 9-10
+}
+12.  @ Ee 2, 3-11
+}
+13. ~Ex(P(x) & Q(x)) ~i 2-12
+
+""""
+"
+~Ex (P(x)|Q(x)) |- Ax (~P(x)&~Q(x)),"
+Prova:""""
+
+1. ~Ex(P(x) | Q(x)) pre
+2. { a
+3.   { P(a) hip
+4.     P(a) | Q(a) |i 3
+5.     Ex(P(x) | Q(x)) Ei 4
+6.     @ ~e 5,1
+}
+7.   ~P(a) ~i 3-6
+8.   { Q(a) hip
+9.     P(a) | Q(a) |i 8
+10.    Ex(P(x) | Q(x)) Ei 9
+11.    @ ~e 10,1
+}
+12.  ~Q(a) ~i 8-11
+13.  ~P(a) & ~Q(a) &i 7,12
+}
+14. Ax(~P(x) & ~Q(x)) Ai 2-13
+
+""""
+"
+Ax ((P(x)->Q(x))&(Q(x)->P(x))) |- Ax (P(x)->Q(x)),"
+Prova:""""
+
+1. Ax((P(x) -> Q(x)) & (Q(x) -> P(x))) pre
+2. { a
+3.   (P(a) -> Q(a)) & (Q(a) -> P(a)) Ae 1
+4.   P(a) -> Q(a) &e 3
+}
+5. Ax(P(x) -> Q(x)) Ai 2-4
+
+""""
+"
+"Ex Ay P(x,y) |- Ay Ex P(x,y)","
+Prova:""""
+
+1. Ex Ay P(x,y) pre
+2. { b
+3.   { a Ay P(a,y) hip
+4.     P(a,b) Ae 3
+5.     Ex P(x,b) Ei 4
+}
+6.   Ex P(x,b) Ee 1, 3-5
+}
+7. Ay Ex P(x,y) Ai 2-6
+
+""""
+"
+"Ax (P(x)->Q(x)), ~Ex Q(x) |- ~Ex P(x)","
+Prova:""""
+
+1. Ax(P(x) -> Q(x)) pre
+2. ~Ex Q(x) pre
+3. { Ex P(x) hip
+4.   { a P(a) hip
+5.     P(a) -> Q(a) Ae 1
+6.     Q(a) ->e 5,4
+7.     Ex Q(x) Ei 6
+8.     @ ~e 7,2
+}
+9.   @ Ee 3, 4-8
+}
+10. ~Ex P(x) ~i 3-9
+
+""""
+"
+"Ax (P(x)->Q(x)), Ax (Q(x)->R(x)), Ex P(x) |- Ex R(x)","
+Prova:""""
+
+1. Ax(P(x) -> Q(x)) pre
+2. Ax(Q(x) -> R(x)) pre
+3. Ex P(x) pre
+4. { a P(a) hip
+5.   P(a) -> Q(a) Ae 1
+6.   Q(a) ->e 5,4
+7.   Q(a) -> R(a) Ae 2
+8.   R(a) ->e 7,6
+9.   Ex R(x) Ei 8
+}
+10. Ex R(x) Ee 3, 4-9
+
+""""
+"
+Ex ~(P(x)&Q(x)) |- Ex (~P(x)|~Q(x)),"
+Prova:""""
+
+1. Ex~(P(x) & Q(x)) pre
+2. { a ~(P(a) & Q(a)) hip
+3.   { ~(~P(a) | ~Q(a)) hip
+4.     { ~P(a) hip
+5.       ~P(a) | ~Q(a) |i 4
+6.       @ ~e 5,3
+}
+7.     P(a) raa 4-6
+8.     { ~Q(a) hip
+9.       ~P(a) | ~Q(a) |i 8
+10.      @ ~e 9,3
+}
+11.    Q(a) raa 8-10
+12.    P(a) & Q(a) &i 7,11
+13.    @ ~e 12,2
+}
+14.  ~P(a) | ~Q(a) raa 3-13
+15.  Ex(~P(x) | ~Q(x)) Ei 14
+}
+16. Ex(~P(x) | ~Q(x)) Ee 1, 2-15
+
+""""
+"
+Ax ~(P(x)|Q(x)) |- Ax ~P(x)&Ax ~Q(x),"
+Prova:""""
+
+1. Ax~(P(x) | Q(x)) pre
+2. { a
+3.   ~(P(a) | Q(a)) Ae 1
+4.   { P(a) hip
+5.     P(a) | Q(a) |i 4
+6.     @ ~e 5,3
+}
+7.   ~P(a) ~i 4-6
+}
+8. Ax~P(x) Ai 2-7
+9. { b
+10.  ~(P(b) | Q(b)) Ae 1
+11.  { Q(b) hip
+12.    P(b) | Q(b) |i 11
+13.    @ ~e 12,10
+}
+14.  ~Q(b) ~i 11-13
+}
+15. Ax~Q(x) Ai 9-14
+16. Ax~P(x) & Ax~Q(x) &i 8,15
+
+""""
+"
+Ax (P(x)->(Q(x)&R(x))) |- Ax (P(x)->Q(x)),"
+Prova:""""
+
+1. Ax(P(x) -> (Q(x) & R(x))) pre
+2. { a
+3.   { P(a) hip
+4.     P(a) -> (Q(a) & R(a)) Ae 1
+5.     Q(a) & R(a) ->e 4,3
+6.     Q(a) &e 5
+}
+7.   P(a) -> Q(a) ->i 3-6
+}
+8. Ax(P(x) -> Q(x)) Ai 2-7
+
+""""
+"
+Ex P(x)|Ex Q(x) |- Ex (P(x)|Q(x)),"
+Prova:""""
+
+1. Ex P(x) | Ex Q(x) pre
+2. { Ex P(x) hip
+3.   { a P(a) hip
+4.     P(a) | Q(a) |i 3
+5.     Ex(P(x) | Q(x)) Ei 4
+}
+6.   Ex(P(x) | Q(x)) Ee 2, 3-5
+}
+7. { Ex Q(x) hip
+8.   { b Q(b) hip
+9.     P(b) | Q(b) |i 8
+10.    Ex(P(x) | Q(x)) Ei 9
+}
+11.  Ex(P(x) | Q(x)) Ee 7, 8-10
+}
+12. Ex(P(x) | Q(x)) |e 1, 2-6, 7-11
+
+""""
+"
+Ax P(x)&Ax Q(x) |- Ax (P(x)&Q(x)),"
+Prova:""""
+
+1. Ax P(x) & Ax Q(x) pre
+2. Ax P(x) &e 1
+3. Ax Q(x) &e 1
+4. { a
+5.   P(a) Ae 2
+6.   Q(a) Ae 3
+7.   P(a) & Q(a) &i 5,6
+}
+8. Ax (P(x) & Q(x)) Ai 4-7
+
+""""
+"
+|- ~(A|B)->(~A&~B),"
+Prova:""""
+
+1. { ~(A | B) hip
+
+2.   { A hip
+
+3.     A | B |i 2
+
+4.     @ ~e 3, 1
+
+    }
+
+5.   ~A ~i 2-4
+
+6.   { B hip
+
+7.     A | B |i 6
+
+8.     @ ~e 7, 1
+
+    }
+
+9.   ~B ~i 6-8
+
+10. ~A & ~B &i 5, 9
+
+  }
+
+11. ~(A | B) -> (~A & ~B) ->i 1-10
+
+""""
+"
+|- (A&B)->~(~A|~B),"
+Prova:""""
+
+1. { A & B hip
+
+2.   { ~A | ~B hip
+
+3.     { ~A hip
+
+4.       A &e 1
+
+5.       @ ~e 4, 3
+
+      }
+
+6.     { ~B hip
+
+7.       B &e 1
+
+8.       @ ~e 7, 6
+
+      }
+
+9.     @ |e 2, 3-5, 6-8
+
+    }
+
+10.  ~(~A | ~B) ~i 2-9
+
+  }
+
+11. (A & B) -> ~(~A | ~B) ->i 1-10
+
+""""
+"
+(A|B)->(C&D) |- (A->C)&(B->D),"
+Prova:""""
+
+1. (A | B) -> (C & D) pre
+2. { A hip
+3. A | B |i 2
+4. C & D ->e 3,1
+5. C &e 4
+}
+6. A -> C ->i 2-5
+7. { B hip
+8. A | B |i 7
+9. C & D ->e 8,1
+10. D &e 9
+}
+11. B -> D ->i 7-10
+12. (A -> C) & (B -> D) &i 6,11
+
+""""
+"
+A->(B&C) |- (A->B)&(A->C),"
+Prova:""""
+
+1. A -> (B & C) pre
+2. { A hip
+3. B & C ->e 2,1
+4. B &e 3
+}
+5. A -> B ->i 2-4
+6. { A hip
+7. B & C ->e 6,1
+8. C &e 7
+}
+9. A -> C ->i 6-8
+10. (A -> B) & (A -> C) &i 5,9
+
+""""
+"
+(A|B)&(A->C) |- C|B,"
+Prova:""""
+
+1. (A | B) & (A -> C) pre
+2. A | B &e 1
+3. A -> C &e 1
+4. { A hip
+5. C ->e 4,3
+6. C | B |i 5
+}
+7. { B hip
+8. C | B |i 7
+}
+9. C | B |e 2, 4-6, 7-8
+
+""""
+"
+(A->B)&(~A->B) |- B,"
+Prova:""""
+
+1. (A -> B) & (~A -> B) pre
+2. A -> B &e 1
+3. ~A -> B &e 1
+4. { ~(A | ~A) hip
+5. { A hip
+6. A | ~A |i 5
+7. @ ~e 6,4
+}
+8. ~A ~i 5-7
+9. A | ~A |i 8
+10. @ ~e 9,4
+}
+11. A | ~A raa 4-10
+12. { A hip
+13. B ->e 12,2
+}
+14. { ~A hip
+15. B ->e 14,3
+}
+16. B |e 11, 12-13, 14-15
+
+""""
+"
+|- A->(A|B),"
+Prova:""""
+
+1. { A                  hip
+
+2.   A | B             |i 1
+
+}
+
+3. A -> (A | B)        ->i 1-2
+
+""""
+"
+|- ~A|A,"
+Prova:""""
+
+1. { ~(~A | A)         hip
+
+2.   { ~A              hip
+
+3.     ~A | A          |i 2
+
+4.     @              ~e 3,1
+
+}
+
+5.   A                raa 2-4
+
+6.   ~A | A          |i 5
+
+7.   @              ~e 6,1
+
+}
+
+8. ~A | A            raa 1-7
+
+""""
+"
+|- (A->~A)->~A,"
+Prova:""""
+
+1. { A -> ~A           hip
+
+2.   { A                hip
+
+3.     ~A              ->e 2,1
+
+4.     @              ~e 2,3
+
+}
+
+5.   ~A              ~i 2-4
+
+}
+
+6. (A -> ~A) -> ~A     ->i 1-5
+
+""""
+"
+"A, A->B |- B","
+Prova:""""
+
+1. A                  pre
+
+2. A -> B             pre
+
+3. B                  ->e 1,2
+
+""""
+"
+A |- A&A,"
+Prova:""""
+
+1. A                  pre
+
+2. A                  copie 1
+
+3. A & A              &i 1,2
+
+""""
+"
+|- (~A->A)->A,"
+Prova:""""
+
+1. { ~A -> A          hip
+
+2.   { ~A              hip
+
+3.     A              ->e 2,1
+4.     @		~e 2,3
+
+}
+
+5.   A                raa 2-4
+
+}
+
+6. (~A -> A) -> A      ->i 1-5
+
+""""
+"
+|- ~(A&~A),"
+Prova:""""
+
+1.{ A & ~A hip
+2.A &e 1
+3.~A &e 1
+4.@ ~e 2,3
+}
+5.~(A & ~A) ~i 1-4
+
+""""
+"
+"A->B, ~A->B, A|~A |- B","
+Prova:""""
+
+1.A -> B pre
+2.~A -> B pre
+3.A | ~A  pre
+4.{ A hip
+5.B ->e 4,1
+}
+6.{ ~A hip
+7.B ->e 6,2
+}
+8.B |e 3,4-5, 6-7
+
+""""
+"
+|- (~A|B)->(A->B),"
+Prova:""""
+
+1.{ ~A | B hip
+2.{ A hip
+3.{ ~A hip
+4.@ ~e 2,3
+5.B @e 4
+}
+6.{ B hip
+7.B copie 6
+}
+8.B |e 1, 3-5, 6-7
+}
+9.A -> B ->i 2-8
+}
+10.(~A | B) -> (A -> B) ->i 1-9
+
+""""
+"
+|- A->(~B->~(A&B)),"
+Prova:""""
+
+1.{ A hip
+2.{ ~B hip
+3.{ A & B hip
+4.A &e 3
+5.B &e 3
+6.@ ~e 5,2
+}
+7.~(A & B) ~i 3-6
+}
+8.~B -> ~(A & B) ->i 2-7
+}
+9.A -> (~B -> ~(A & B)) ->i 1-8
+
+""""
+"
+|- ((A&B)->C)->(A->(B->C)),"
+Prova:""""
+
+1.{ (A & B) -> C hip
+2.{ A hip
+3.{ B hip
+4.A & B &i 2,3
+5.C ->e 4,1
+}
+6.B -> C ->i 3-5
+}
+7.A -> (B -> C) ->i 2-6
+}
+8.((A & B) -> C) -> (A -> (B -> C)) ->i 1-7
+
+""""
+"
+~A|A |- A|(A->B),"
+Prova:""""
+
+1. ~A | A pre
+2.{ ~A hip
+3.{ A hip
+4.@ ~e 3,2
+5.B @e 4
+}
+6.A -> B ->i 3-5
+7.A | (A -> B) |i 6
+}
+8.{ A hip
+9.A | (A -> B) |i 8
+}
+10.A | (A -> B) |e 1,2-7, 8-9
+
+""""
+"
+|- ~A->(A->B),"
+Prova:""""
+
+1. {~A hip
+2. {A hip
+3. @ ~e 1,2
+4. B @e 3
+}
+5. A -> B ->i 2-4
+}
+6. ~A -> (A -> B) ->i 1-5
+
+""""
+"
+|- (A|~B)->(~A->~B),"
+Prova:""""
+
+1. { A | ~B hip
+2. {~A hip
+3. {A hip
+4. ~A copie 2
+5. @ ~e 3,4
+6. ~B @e 5
+}
+7. {~B hip
+8. ~B copie 7
+}
+9. ~B |e 1,3-6,7-8
+}
+10. ~A -> ~B  ->i 2-9
+}
+11. (A | ~B) -> (~A -> ~B) ->i 1-10
+
+""""
+"
+|- ~(A&B)->(A->~B),"
+Prova:""""
+
+1. {~(A & B) hip
+2. {A hip
+3. {B hip
+4. A & B &i 2,3
+5. @ ~e 1,4
+}
+6. ~B ~i 3-5
+}
+7. A -> ~B ->i 2-6
+}
+8. ~(A & B) -> (A -> ~B) ->i 1-7
+
+""""
+"
+|- (A->(B|C))->((A&~B)->C),"
+Prova:""""
+
+1.{ A -> (B | C) hip
+2.{ A & ~B hip
+3. A &e 2
+4. B | C ->e 1,3
+5. {B hip
+6. ~B &e 2
+7. @ ~e 5,6
+8. C @e 7
+}
+9.{ C hip
+10. C copie 9
+}
+11. C |e 4,5-8,9-10
+}
+12. (A & ~B) -> C ->i 2-11
+}
+13. (A -> (B | C)) -> ((A & ~B) -> C) ->i 1-12
+
+""""
+"
+"A->~B, B |- ~A","
+Prova:""""
+
+1. A -> ~B pre
+2. B pre
+3. {A hip
+4. ~B ->e 1,3
+5. @ ~e 2,4
+}
+6. ~A ~i 3-5
+
+""""
+"
+A|B |- (~A->B)&(~B->A),"
+Prova:""""
+
+1. A | B pre
+2. {~A hip
+3. {A hip
+4. @ ~e 2,3
+5. B @e 4
+}
+6. {B hip
+7. B copie 6
+}
+8. B |e 1,3-5,6-7
+}
+9. ~A -> B ->i 2-8
+10. {~B hip
+11. {A hip
+12. A copie 11
+}
+13. {B hip
+14. @ ~e 10,13
+15. A @e 14
+}
+16. A |e 1,11-12,13-15
+}
+17. ~B -> A ->i 10-16
+18. (~A -> B) & (~B -> A) &i 9,17
+
+""""
+"
+(A->C)|(B->C) |- (A&B)->C,"
+Prova:""""
+
+1. (A -> C) | (B -> C) pre
+2. { A & B hip
+3. A &e 2
+4. B &e 2
+5. { A -> C hip
+6. C ->e 3,5
+}
+7. { B -> C hip
+8. C ->e 4,7
+}
+9. C |e 1, 5-6, 7-8
+}
+10. (A & B) -> C ->i 2-9
+
+""""
+"
+|- (A&(B|C))->((A&B)|(A&C)),"
+Prova:""""
+
+1.{ A & (B | C) hip
+2. A &e 1
+3. B | C &e 1
+4.{ B hip
+5. A & B &i 2,4
+6. (A & B) | (A & C) |i 5
+}
+7.{ C hip
+8. A & C &i 2,7
+9. (A & B) | (A & C) |i 8
+}
+10. (A & B) | (A & C) |e 3,4-6,7-9
+}
+11. (A & (B | C)) -> ((A & B) | (A & C)) ->i 1-10
+
+""""
+"
+|- A->(~A->B),"
+Prova:""""
+
+1.{ A hip
+2. {~A hip
+3. @ ~e 1,2
+4. B @e 3
+}
+5. ~A -> B ->i 2-4
+}
+6. A -> (~A -> B) ->i 1-5
+
+""""
+"
+|- (A->C)->((B->C)->((A|B)->C)),"
+Prova:""""
+
+1. { A -> C hip
+2. { B -> C hip
+3. { A | B hip
+4. { A hip
+5. C ->e 1,4
+   }
+6. { B hip
+7. C ->e 2,6
+   }
+8. C |e 3,4-5,6-7
+   }
+9. (A | B) -> C ->i 3-8
+   }
+10. (B -> C) -> ((A | B) -> C) ->i 2-9
+   }
+11. (A -> C) -> ((B -> C) -> ((A | B) -> C)) ->i 1-10
+
+""""
+"
+|- ~(A->B)->(A&~B),"
+Prova:""""
+
+1. { ~(A -> B) hip
+2. { ~ (A & ~B) hip
+3. { A hip
+4. { ~B hip
+5. A & ~B &i 3,4
+6. @ ~e 5,2
+      }
+7. B raa 4-6
+   }
+8. A -> B ->i 3-7
+9. @ ~e 8,1
+    }
+10. A & ~B raa 2-9
+   }
+11. ~(A -> B) -> (A & ~B) ->i 1-10
+
+""""
+"
+|- (A&B)->~(A->~B),"
+Prova:""""
+
+1. { A & B hip
+2. { A -> ~B hip
+3. A &e 1
+4. ~B ->e 2,3
+5. B &e 1
+6. @ ~e 4,5
+     }
+7. ~(A -> ~B) ~i 2-6
+   }
+8. (A & B) -> ~(A -> ~B) ->i 1-7
+
+""""
+"
+|- A->(B->(A&B)),"
+Prova:""""
+
+1. { A hip
+2. { B hip
+3. A copie 1
+4. A & B &i 3,2
+    }
+5. B -> (A & B) ->i 2-4
+   }
+6. A -> (B -> (A & B)) ->i 1-5
+
+""""
+"
+|- ((A->B)&(C->D))->((A&C)->(B&D)),"
+Prova:""""
+
+1. { (A -> B) & (C -> D) hip
+2. { A & C hip
+3. A &e 2
+4. C &e 2
+5. A -> B &e 1
+6. B ->e 5,3
+7. C -> D &e 1
+8. D ->e 7,4
+9. B & D &i 6,8
+   }
+10. (A & C) -> (B & D) ->i 2-9
+    }
+11. ((A -> B) & (C -> D)) -> ((A & C) -> (B & D)) ->i 1-10
+
+""""
+"
+|- (A->B)->(~B->~A),"
+Prova:""""
+
+1. { A -> B hip
+2.   { ~B hip
+3.     { A hip
+4.        B ->e 3,1
+5.        @ ~e 4,2
+}
+6.     ~A ~i 3-5
+  }
+7.  ~B -> ~A ->i 2-6
+}
+8. (A -> B) -> (~B -> ~A) ->i 1-7
+
+""""
+"
+~A->B |- ~B->A,"
+Prova:""""
+
+1. ~A -> B pre
+2. { ~B hip
+3.  {  ~A hip
+4.     B ->e 3,1
+5.     @ ~e 4,2
+}
+6.  A raa 3-5
+}
+7. ~B -> A ->i 2-6
+
+""""
+"
+(A&B)->C |- A->(B->C),"
+Prova:""""
+
+1. A & B -> C pre
+2. { A hip
+3. { B hip
+4. A & B &i 2,3
+5. C ->e 4,1
+}
+6. B -> C ->i 3-5
+}
+7. A -> (B -> C) ->i 2-6
+
+""""
+"
+|- ((A->B)&(B->C))->(A->C),"
+Prova:""""
+
+1.  { (A -> B) & (B -> C)  hip
+2.    { A hip
+3.       A -> B &e 1
+4.       B -> C &e 1
+5.       B ->e 2,3
+6.       C ->e 5,4
+ }
+7.    A -> C ->i 2-6
+  }
+8. ((A -> B) & (B -> C)) -> (A -> C) ->i 1-7
+
+""""
+"
+(A&B)|(A&~B) |- A,"
+Prova:""""
+
+1. (A & B) | (A & ~B) pre
+2. { A & B hip
+3. A &e 2
+}
+4. { A & ~B hip
+5. A &e 4
+}
+6. A |e 1, 2-3, 4-5
+
+""""
+"
+A->B |- (A|C)->(B|C),"
+Prova:""""
+
+1. A -> B pre
+2. { A | C hip
+3. { A hip
+4. B ->e 3,1
+5. B | C |i 4
+}
+6. { C hip
+7. B | C |i 6
+}
+8. B | C |e 2, 3-5, 6-7
+}
+9. (A | C) -> (B | C) ->i 2-8
+
+""""
+"
+(A->B)&(B->C) |- ~C->~A,"
+Prova:""""
+
+1. (A -> B) & (B -> C) pre
+2. A -> B &e 1
+3. B -> C &e 1
+4. { ~C hip
+5. { A hip
+6. B ->e 5,2
+7. C ->e 6,3
+8. @ ~e 7,4
+}
+9. ~A ~i 5-8
+}
+10. ~C -> ~A ->i 4-9
+
+""""
+"
+(A->B)&(C->D) |- (A&C)->(B&D),"
+Prova:""""
+
+1. (A -> B) & (C -> D) pre
+2.  { A & C hip
+3.  A -> B &e 1
+4.  C -> D &e 1
+5. A &e 2
+6. B ->e 5,3
+7. C &e 2
+8. D ->e 7,4
+9. B & D &i 6,8
+}
+10. (A & C) -> (B & D)  ->i 2-9
+
+""""
+"
+A->B |- (A&C)->(B&C),"
+Prova:""""
+
+1. A -> B pre
+2. { A & C hip
+3. A &e 2
+4. B ->e 3,1
+5. C &e 2
+6. B & C &i 4,5
+}
+7. (A & C) -> (B & C) ->i 2-6
+
+""""
+"
+~P |- ~((P&Q)&R),"
+Prova:""""
+
+1. ~P		pre
+2. { ((P & Q) & R) hip
+3. P & Q	&e 2
+4. P		&e 3
+5. @ 		~e 4, 1
+   }
+6. ~((P & Q) & R) ~i 2-5
+
+""""
+"
+(P&Q)&R |- Q,"
+Prova:""""
+
+1.( P & Q) & R pre
+2.P & Q 	&e 1
+3.Q	&e 2
+
+""""
+"
+P&Q |- Q&P,"
+Prova:""""
+
+1. P & Q pre
+2. Q &e 1
+3. P &e 1
+4. Q & P &i 2,3
+
+""""
+"
+"Q&P, R |- P&(R&Q)","
+Prova:""""
+
+1. Q&P		pre
+2. R		pre
+3. P		&e 1
+4. Q		&e 1
+5. R&Q		&i 2,4
+6.P&(R&Q)	&i 3,5	
+
+""""
+"
+"P&Q, (R&S)&T |- (P&S)&T","
+Prova:""""
+
+1. P&Q		pre
+2. (R&S)&T	pre
+3. P		&e 1
+4. R&S		&e 2
+5. T		&e 2
+6. S		&e 4
+7. P&S		&i 3,6
+8. (P&S)&T	&i 7,5
+
+""""
+"
+P&(Q&R) |- (R&P)&Q,"
+Prova:""""
+
+1. P&(Q&R)	pre
+2. Q&R		&e 1
+3. R		&e 2
+4. P		&e 1
+5. Q		&e 2
+6. R&P		&i 3,4
+7. (R&P) & Q	&i 6,5
+
+""""
+"
+"P->Q, Q->R |- P->R","
+Prova:""""
+
+1. P->Q		pre
+2. Q->R		pre
+3. { P		hip
+4. Q		->e 3,1
+5. R		->e 4,2
+}
+6. P -> R	->i 3-5
+
+""""
+"
+|- P->((P->Q)->Q),"
+Prova:""""
+
+1. { P			hip
+2. {P -> Q		hip
+3. Q			->e 1,2
+}
+4.(P->Q) -> Q		->i 2-3
+}
+5. P->((P->Q)->Q)	->i 1-4
+
+""""
+"
+(P->Q)->(P->R) |- Q->(P->R),"
+Prova:""""
+
+1. (P -> Q) -> (P -> R)		pre
+2. { Q				hip
+3. { P				hip
+4. Q				copie 2
+}
+5. P -> Q			->i 3-4
+6. P -> R 			->e 5,1
+}
+7. Q -> (P -> R)		->i 2-6
+
+""""
+"
+(P->Q)->P |- Q->P,"
+Prova:""""
+
+1. (P -> Q) -> P		pre
+2. { Q				hip
+3. { P				hip
+4. Q				copie 2
+}
+5. P -> Q			->i 3-4
+6. P				->e 5,1
+}
+7. Q -> P			->i 2-6
+
+""""
+"
+P->(Q->R) |- Q->(P->R),"
+Prova:""""
+
+1. P -> (Q -> R)	pre
+2. { Q			hip
+3.  { P			hip
+4.	Q -> R		->e 3,1
+5.	R		->e 2,4
+	}
+6. P -> R		->i 3-5
+}
+7. Q -> (P->R)		->i 2-6
+
+""""
+"
+"P->(Q->R), P->Q |- P->R","
+Prova:""""
+
+1. P -> (Q -> R)		pre
+2. P -> Q			pre
+3. { P				hip
+4. Q -> R			->e 3,1
+5. Q				->e 3,2
+6. R				->e 5,4
+}
+7. P -> R			->i 3-6
+
+""""
+"
+(P->P)->Q |- (Q->R)->R,"
+Prova:""""
+
+1. (P -> P) -> Q		pre
+2. { Q -> R			hip
+3. { P				hip
+4.   P				copie 3
+}
+5. P -> P			->i 3-4
+6. Q				->e 5,1
+7. R				->e 6,2
+}
+8. (Q -> R) -> R		->i 2-7
+
+""""
+"
+P&Q |- P->Q,"
+Prova:""""
+
+1. P & Q 		pre
+2. { P			hip
+3.   Q			&e 1
+}
+4. P -> Q		->i 2-3
+
+""""
+"
+|- (P&Q)->P,"
+Prova:""""
+
+1. { P & Q		hip
+2. P			&e 1
+}
+3. P & Q -> P		->i 1-2
+
+""""
+"
+P->(Q&R) |- P->Q,"
+Prova:""""
+
+1. P -> ( Q & R)		pre
+2. { P				hip
+3. Q & R			->e 2,1
+4. Q				&e 3
+}
+5. P -> Q			->i 2-4
+
+""""
+"
+((P&Q)->Q)->(Q->P) |- Q->P,"
+Prova:""""
+
+1. (( P&Q) -> Q) -> (Q->P)	pre
+2. { P & Q			hip
+3. Q				&e 2
+}
+4. (P&Q) -> Q			->i 2-3
+5. Q -> P			->e 1,4
+
+""""
+"
+(P&Q)->R |- P->(Q->R),"
+Prova:""""
+
+1. (P&Q) -> R		pre
+2. { P			hip
+3. { Q			hip
+4. P & Q		&i 2,3
+5. R			->e 4,1
+}
+6. Q -> R		->i 3-5
+}
+7. P -> ( Q -> R )	->i 2-6
+
+""""
+"
+(P->Q)&(P->R) |- P->(Q&R),"
+Prova:""""
+
+1. ( P -> Q ) & (P -> R)		pre
+2. { P					hip
+3. P -> Q				&e 1
+4. P-> R				&e 1
+5. Q					->e 2,3
+6. R					->e 2,4
+7. Q & R				&i 5,6
+}
+8. P -> ( Q & R)			->i 2-7
+
+""""
+"
+P->(Q&R) |- (P->Q)&(P->R),"
+Prova:""""
+
+1. P -> (Q & R)			pre
+2. { P				hip
+3. Q & R			->e 2,1
+4. Q				&e 3
+}
+5. P -> Q			->i 2-4
+6. { P				hip
+7. Q & R			->e 6,1
+8. R				&e 7
+}
+9. P -> R			->i 6-8
+10. (P->Q) & (P->R)		&i 5,9
+
+""""
+"
+P|Q |- Q|P,"
+Prova:""""
+
+1. P | Q		pre
+2. {P			hip
+3. Q | P		|i 2
+}
+4. {Q			hip
+5. Q | P		|i 4
+}
+6. Q | P		|e 1,2-3,4-5
+
+""""
+"
+P|Q |- P|(Q|R),"
+Prova:""""
+
+1. P | Q		pre
+2. { P			hip
+3. P | ( Q | R )	|i 2
+}
+4.{ Q			hip
+5. Q | R		|i 4
+6. P | ( Q | R )	|i 5
+}
+7. P | ( Q | R )	|e 1, 2-3, 4-6
+
+""""
+"
+(P|Q)|R |- P|(Q|R),"
+Prova:""""
+
+1. (P | Q) | R		pre
+2. { (P | Q)		hip
+3. { P			hip
+4. P | (Q | R )		|i 3
+}
+5.{ Q			hip
+6. Q | R		|i 5
+7. P | (Q | R )		|i 6
+}
+8. P | (Q | R )		|e 2,3-4,5-7
+}
+9. {R			hip
+10. Q | R		|i 9
+11. P | (Q | R )	|i 10
+}
+12. P | (Q | R )	|e 1,2-8,9-11
+
+""""
+"
+(P|Q)|(R|S) |- (P|S)|(R|Q),"
+Prova:""""
+
+1. (P | Q) | (R | S)		pre
+2. { (P | Q)			hip
+3. { P				hip
+4. P | S			|i 3
+5. (P | S) | (R | Q )		|i 4
+}
+6. { Q				hip
+7. R | Q			|i 6
+8. (P | S) | (R | Q )		|i 7
+}
+9. (P | S) | (R | Q )		|e 2,3-5,6-8
+}
+10. { (R | S)			hip
+11. { R				hip
+12. R | Q			|i 11
+13. (P | S) | (R | Q )		|i 12
+}
+14. { S				hip
+15. (P | S)			|i 14
+16. (P | S) | (R | Q )		|i 15
+}
+17. (P | S) | (R | Q )		|e 10,11-13,14-16
+}
+18. (P | S) | (R | Q )		|e 1,2-9,10-17
+
+""""
+"
+(P->Q)|Q |- P->Q,"
+Prova:""""
+
+1. (P -> Q) | Q		pre
+2. { P			hip
+3.{(P -> Q)		hip
+4. Q			->e 2,3
+}
+5. { Q			hip
+6. Q			copie 5
+}
+7. Q			|e 1,3-4,5-6
+}
+8. P -> Q		->i 2-7
+
+""""
+"
+P|Q |- (P->Q)->Q,"
+Prova:""""
+
+1.  P | Q		pre
+2. { P -> Q		hip
+3. { P			hip
+4. Q			->e 3,2
+}
+5. { Q			hip
+6. Q			copie 5
+}
+7. Q			|e 1,3-4,5-6
+}
+8. (P -> Q) -> Q	->i 2-7
+
+""""
+"
+(P->Q)|(P->R) |- P->(Q|R),"
+Prova:""""
+
+1. (P -> Q) | (P -> R)	pre
+2. { P			hip
+3. { (P -> Q)		hip
+4. Q			->e 2,3
+5. Q | R		|i 4
+}
+6. { (P -> R)		hip
+7. R			->e 2,6
+8. Q|R			|i 7
+}
+9. Q|R			|e 1,3-5,6-8
+}
+10. P  -> (Q | R)	->i 2-9
+
+""""
+"
+(P->Q)&(Q->P) |- (P|Q)->(P&Q),"
+Prova:""""
+
+1. (P -> Q) & (Q -> P)		pre
+2. (P -> Q)			&e 1
+3. (Q -> P)			&e 1
+4. { P | Q			hip
+5. { P				hip
+6. Q				->e 5,2
+7. P&Q				&i 5,6
+}
+8. { Q				hip
+9. P				->e 8,3
+10. P&Q				&i 8,9
+}
+11. P&Q				|e 4,5-7,8-10
+}
+12. (P|Q) -> (P&Q)		->i 4-11
+
+""""
+"
+(P|Q)->(Q&P) |- (P->Q)&(Q->P),"
+Prova:""""
+
+1. (P | Q) -> (Q & P)		pre
+2. { P				hip
+3. P | Q			|i 2
+4. Q&P				->e 3,1
+5. Q				&e 4
+}
+6. P -> Q			->i 2-5
+7. { Q				hip
+8. P | Q			|i 7
+9. Q&P				->e 8,1
+10. P				&e 9
+}
+11. Q -> P			->i 7-10
+12. (P -> Q) & (Q->P)		&i 6,11
+
+""""
+"
+(Q->R)&(Q|P) |- (P->Q)->(R&Q),"
+Prova:""""
+
+1. (Q -> R) & (Q | P)		pre
+2. Q -> R			&e 1
+3. Q | P			&e 1
+4. { P -> Q			hip
+5. { Q				hip
+6. Q				copie 5
+}
+7. { P				hip
+8. Q				->e 7,4
+}
+9. Q				|e 3,5-6,7-8
+10. R				->e 9,2
+11. R & Q			&i 10,9
+}
+12. (P -> Q) -> (R & Q)		->i 4-11
+
+""""
+"
+~(P->Q) |- P,"
+Prova:""""
+
+1.~(P -> Q)	pre
+2.{~P		hip
+3.	{P 	hip
+4.	 @	~e 2,3
+5.	 Q 	@e 4
+		}
+6.       P -> Q ->i 3-5
+7.	@ 	~e 1,6
+}
+8. 	P   	raa 2-7
+
+""""
+"
+~P |- ~(P&Q),"
+Prova:""""
+
+1. ~P			pre
+2. { P & Q		hip
+3.   P			&e 2
+4.   @			~e 1,3
+}
+5. ~(P & Q)		~i 2-4
+
+""""
+"
+P->~P |- ~P,"
+Prova:""""
+
+1. P -> ~P	pre
+2. { P		hip
+3.   ~P		->e 2,1
+4.   @		~e 2,3
+}
+5. ~P		~i 2-4
+
+""""
+"
+~(P->Q) |- ~Q,"
+Prova:""""
+
+1. ~(P->Q)	pre
+2. { Q		hip
+3.     { P	hip
+4. 	 Q	copie 2
+	}
+5.     P -> Q  ->i 3-4
+6.     @	~e 1,5
+}
+7. ~Q		~i 2-6
+
+""""
+"
+~(P&Q) |- P->~Q,"
+Prova:""""
+
+1. ~(P&Q)	pre
+2. { P		hip
+3.  { Q		hip
+4.    P&Q	&i 2,3
+5.    @		~e 1,4
+}
+6.   ~Q		~i 3-5
+}
+7. P -> ~Q	->i 2-6
+
+""""
+"
+|- ~((P&~P)|(Q&~Q)),"
+Prova:""""
+
+1. {(P &~P) | (Q&~Q)	hip
+2. { (P&~P)		hip
+3. P			&e 2
+4. ~P			&e 2
+5. @			~e 3,4
+6. ~((P&~P) | (Q&~Q))	@e 5
+}
+7. { (Q&~Q)		hip
+8. Q			&e 7
+9. ~Q			&e 7
+10. @			~e 8,9
+11. ~((P&~P) | (Q&~Q))	@e 10
+}
+12.  ~((P&~P) | (Q&~Q)) |e 1,2-6,7-11
+13. @			~e 1,12
+}
+14.  ~((P&~P) | (Q&~Q))	~i 1-13
+
+""""
+"
+~P |- P->Q,"
+Prova:""""
+
+1. ~P		pre
+2. { P		hip
+3. @		~e 1,2
+4. Q		@e 3
+}
+5. P ->Q	->i 2-4
+
+""""
+"
+P&~P |- Q,"
+Prova:""""
+
+1. P & ~P	pre
+2. P		&e 1
+3. ~P		&e 1
+4. @		~e 2,3
+5. Q		@e 4
+
+""""
+"
+"P->Q, P&~Q |- R","
+Prova:""""
+
+1. P -> Q	pre
+2. P&~Q		pre
+3. P		&e 2
+4. ~Q		&e 2
+5. Q 		->e 1,3
+6. @		~e 4,5
+7. R		@e 6
+
+""""
+"
+(P->Q)->P |- P,"
+Prova:""""
+
+1. (P->Q) -> P		pre
+2. { ~P			hip
+3.   {P			hip
+4.   @			~e 2,3
+5.   Q			@e 4
+}
+6. P -> Q		->i 3-5
+7. P			->e 1,6
+8. @			~e  2,7
+}
+9.  P			raa 2-8
+
+""""
+"
+(P->Q)->Q |- ~Q->P,"
+Prova:""""
+
+1. (P->Q) -> Q 		pre
+2. { ~Q			hip
+3.   { ~P		hip
+4.	{ P		hip
+5.	@		~e 3,4
+6.	Q		@e 5
+	}
+7.   P->Q		->i 4-6
+8.   Q			->e 1,7
+9.   @			~e 2,8
+}
+10.  P			raa 3-9
+}
+11. ~Q ->P		->i 2-10
+
+""""
+"
+|- P|(P->Q),"
+Prova:""""
+
+1. { ~(P | ( P -> Q ))		hip
+2.  { P				hip
+3.    P | ( P -> Q )		|i 2
+4.	@			~e 1,3
+}
+5.	~P			~i 2-4
+6.      { P			hip
+7.	@			~e 5,6
+8.	Q			@e 7
+	}
+9.   P -> Q			->i 6-8
+10.  P | ( P -> Q )		|i 9
+11.  @				~e 1,10
+}
+12. P | (P -> Q)		raa 1-11
+
+""""
+"
+|- (P->Q)|(Q->R),"
+Prova:""""
+
+1. { ~((P->Q) | (Q->R))		hip
+2.  { Q				hip
+3.   { P			hip
+4.	Q			copie 2
+	 }
+5.   P->Q			->i 3-4
+6.   (P->Q) | (Q->R)		|i 5
+7.   @				~e 1,6
+8.   ~Q				@e 7
+9.   @				~e 2,8
+10.  R				@e 9
+	}
+11. Q->R			->i 2-10
+12. (P->Q) | (Q->R)		|i 11
+13.  @				~e 1,12
+  }
+14.  (P->Q) | (Q->R)		raa 1-13
+
+""""
+"
+"~P->Q, R|~Q, P->(M|N), ~R&~N |- M","
+Prova:""""
+
+1. ~P -> Q		pre
+2. R | ~Q		pre
+3. P-> (M|N)		pre
+4. ~R & ~N 		pre
+5. ~R			&e 4
+6. ~N			&e 4
+7. R|~Q			copie 2
+8.   { R		hip
+9.     @		~e 5,8
+10.    ~Q		@e 9
+}
+11.  { ~Q		hip
+12.    ~Q		copie 11
+	 }
+13. ~Q			|e 7,8-10,11-12
+14. { ~P		hip
+15.   Q			->e 1,14
+16.  @			~e 13,15
+}
+17. P			raa 14-16
+18. M|N			->e 3,17
+19. { M			hip
+20.   M			copie 19
+}
+21. { N			hip
+22.   @			~e 6,21
+23.   M			@e 22
+	 }
+24. M			|e 18,19-20,21-23
+
+""""
+"
+P->(Q|R) |- (P->Q)|(P->R),"
+Prova:""""
+
+1. P -> (Q|R)			pre
+2. {~((P ->Q) | (P->R))		hip
+3.  { P				hip
+4.   Q|R			->e 1,3
+5.  { Q				hip
+6.   { P			hip
+7.     Q			copie 5
+	 }
+8.  P->Q			->i 6-7
+9.  (P ->Q) | (P->R)		|i 8
+	}
+10. { R				hip
+11.  { P			hip
+12.    R			copie 10
+	 }
+13.  P->R			->i 11-12
+14.  (P ->Q) | (P->R)		|i  13
+	 } 
+15.  (P ->Q) | (P->R)		|e 4,5-9,10-14
+16.   @				~e 2,15
+17.   Q				@e 16
+} 
+18.  P->Q			->i 3-17
+19.  (P ->Q) | (P->R)		|i 18
+20.   @				~e 2,19
+	}
+21. (P ->Q) | (P->R)		raa 2-20
+
+""""
+"
+P->(Q->R) |- (P&Q)->R,"
+Prova:""""
+
+1. P->(Q->R)		pre
+2. { P&Q		hip
+3.   P			&e 2
+4.   Q			&e 2
+5.   Q->R               ->e 3,1
+6.   R			->e 4,5
+	}
+7. (P&Q) -> R           ->i 2-6
+
+""""
+"
+P&(~Q->~P) |- ~P|(Q&P),"
+Prova:""""
+
+1. (P&(~Q->~P))			pre
+2. P				&e 1
+3. (~Q->~P)			&e 1
+4. { ~Q				hip
+5.   ~P				->e 4,3
+6.   @				~e 2,5
+	}
+7. Q				raa 4-6
+8. Q & P			&i 7,2
+9. (~P|(Q&P))			|i 8
+
+""""
+"
+"(P&Q)->(Q&R), R->~P |- P->~Q","
+Prova:""""
+
+1. ((P&Q)->(Q&R))		pre
+2. (R->~P) 			pre
+3. { P				hip
+4.  { Q				hip
+5.    (P&Q)			&i 3,4
+6.    (Q&R)			->e 5,1
+7.    R				&e 6
+8.    ~P			->e 7,2
+9.    @				~e  3,8
+	}
+10. ~Q				~i 4-9
+   }
+11. (P->~Q)			->i 3-10
+
+""""
+"
+"~S->~R, (P&Q)|R, ~S->~Q |- ~P|S","
+Prova:""""
+
+1. (~S->~R)				pre
+2. ((P&Q)|R)				pre
+3. (~S->~Q)				pre
+4. { (P&Q)				hip
+5.   Q					&e 4
+6.   { ~S				hip
+7.     ~Q				->e 6,3
+8.     @				~e 5,7
+	  }
+9.   S					raa 6-8
+	}
+10. { R					hip
+11.   { ~S				hip
+12.      ~R				->e 1,11
+13.      @				~e 10,12
+	   }
+14.   S					raa 11-13
+	 }
+15. S					|e 2,4-9,10-14
+16. (~P|S)				|i 15
+
+""""
+"
+"~P->(Q&R), ~(R|P) |- ~Q","
+Prova:""""
+
+1. (~P -> ( Q &R ))			pre
+2. ~( R | P )				pre
+3. { P					hip
+4.   R|P				|i 3
+5.   @					~e 2,4
+   }
+6. ~P 					~i 3-5
+7. (Q&R)				->e 6,1
+8. R					&e 7
+9. R|P					|i 8
+10. @					~e 9,2
+11. ~Q					@e 10
+
+""""
+"
+Q->(Q&~Q) |- ~Q,"
+Prova:""""
+
+1. Q -> (Q&~Q)		pre
+2. { Q			hip
+3.   Q & ~Q		->e 1,2
+4.   ~Q			&e 3
+5.   @			~e 2,4
+}
+6. ~Q			~i 2-5
+
+""""
+"
+"~F->G, F->H |- G|H","
+Prova:""""
+
+1. ~F -> G		pre
+2. F-> H		pre
+3. { ~(G|H)		hip
+4.  { F			hip
+5.    H			->e 2,4
+6.    G|H		|i 5
+7.    @			~e 3,6
+	 }
+8.  ~F			~i 4-7
+9.  G			->e 1,8
+10. G|H			|i 9
+11. @			~e 3,10
+}
+12. G|H			raa 3-11
+
+""""
+"
+"(Z&K)|(K&M), K->D |- D","
+Prova:""""
+
+1. ( Z & K ) | ( K & M )		pre
+2. K -> D				pre
+3. { Z & K 				hip
+4.   K					&e 3
+5.   D					->e 2,4
+   }
+6. { K & M				hip
+7.   K					&e 6
+8.   D					->e 2,7
+   }
+9. D					|e 1,3-5,6-8
+
+""""
+"
+"P&(Q|R), P->~R |- Q|E","
+Prova:""""
+
+1. P & (Q | R)			pre
+2. P -> ~R			pre
+3. P				&e 1
+4. ~R				->e 2,3
+5. Q|R				&e 1
+6. { Q				hip
+7.   Q|E			|i 6
+}
+8.  { R				hip
+9.    @				~e 4,8
+10.   Q|E			@e 9
+}
+11. Q | E			|e 5,6-7,8-10
+
+""""
+"
+"P|Q, ~P |- Q","
+Prova:""""
+
+1. P | Q		pre
+2. ~P			pre
+3. {P			hip
+4.  { ~Q		hip
+5.    @			~e 2,3	
+	 }
+6.   Q			raa 4-5
+}
+7.  { Q			hip
+8.    Q			copie 7
+}
+9. Q			|e 1,3-6,7-8
+
+""""
+"
+"(P&Q)->R, Q->P, Q |- R","
+Prova:""""
+
+1. P & Q -> R			pre
+2. Q -> P			pre
+3. Q				pre
+4. P				->e 2,3
+5. P&Q				&i 4,3
+6. R				->e 1,5
+
+""""
+"
+"P->Q, Q->R |- P->(Q&R)","
+Prova:""""
+
+1. P -> Q 			pre
+2. Q -> R			pre
+3. {P				hip
+4.  Q				->e 1,3
+5.  R				->e 2,4
+6.  Q&R				&i 4,5
+   }
+7. P-> (Q&R)			->i 3-6
+
+""""
+"
+"(L&M)->~P, I->P, M, I |- ~L","
+Prova:""""
+
+1. L & M -> ~P			pre
+2.  I-> P			pre
+3.  M				pre
+4. I				pre
+5. {L				hip
+6. L&M				&i 5,3
+7. ~P				->e 1,6
+8. P				->e 2,4
+9. @				~e  7,8
+}
+10. ~L				~i 5-9
+
+""""
+"
+"P->Q, P->(Q->R) |- P->R","
+Prova:""""
+
+1. P -> Q				pre
+2. P -> (Q -> R)			pre
+3. { P					hip
+4.  Q					->e 1,3
+5.  Q->R				->e 2,3
+6.  R					->e 5,4
+}
+7. P -> R				->i 3-6
+
+""""
+"
