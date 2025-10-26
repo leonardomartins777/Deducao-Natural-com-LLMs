@@ -52,3 +52,28 @@ Os arquivos estão disponíveis em formato `.csv`.
   | **BD1** | Proposicional | 22–62 | Exercícios proposicionais utilizados para teste |
   | **BD3** | Predicados | 2–21 | Exercícios de lógica de predicados utilizados para teste |
 
+
+## 📊 Resultados
+
+A seguir são apresentados os principais resultados obtidos na avaliação dos modelos de linguagem na resolução de provas de **dedução natural** em **Lógica Proposicional** e **Lógica de Predicados**.
+
+### 🔹 Desempenho geral por modelo e base
+
+O gráfico abaixo ilustra a taxa de acertos de cada modelo nos conjuntos de dados de teste (BD1 e BD3):
+
+<p align="center">
+  <img src="resultados/graficos/Resultados-Grafico-simplificado.png" alt="Gráfico de desempenho dos modelos" width="700">
+</p>
+
+
+**Legenda:**
+- **GPT-4.1-mini (sem FT)** — versão original do modelo **GPT-4.1-mini**, utilizada **sem fine-tuning** na fase inicial dos experimentos. Serviu como base de comparação direta para avaliar o impacto do ajuste supervisionado.  
+- **GPT-4.1-mini (com FT)** — versão do **GPT-4.1-mini** **ajustada via fine-tuning supervisionado** com os exemplos do *Dataset de Treinamento* (BD2 e BD4). Empregada na etapa final de avaliação, demonstrou **maior coerência formal e precisão** nas provas de dedução natural.  
+- **GPT-4o** — modelo testado **sem fine-tuning**.  
+- **GPT-3.5-turbo** — modelo **base de comparação**, também **sem fine-tuning**.
+  
+
+O **GPT-4.1-mini treinado** apresentou melhora significativa, sobretudo nas provas de lógica de predicados, demonstrando maior estabilidade nas regras de inferência e consistência nas conclusões.  
+Os modelos não ajustados obtiveram desempenho satisfatório apenas em exercícios mais diretos, falhando nas provas que exigem subprovas ou raciocínio de segunda ordem.
+
+---
